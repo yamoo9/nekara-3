@@ -1,12 +1,13 @@
 {
-  "name": "euid-3rd",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "name": "nekara-3--react-jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "live-server src"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "@types/node": "17.0.13",
+    "eslint": "8.8.0",
+    "eslint-plugin-react": "7.28.0",
+    "live-server": "1.2.1"
+  }
 }
