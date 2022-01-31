@@ -1,6 +1,13 @@
 # React ⌁ 네카라쿠배 3기
 
-학습 주제
+## 학습 주제
+
+Create React App 툴체인을 사용해 React 앱 만들기 (webpack 구성 덮어쓰기)
+
+- [react-app-rewired](https://www.npmjs.com/package/react-app-rewired)
+- [customize-cra](https://www.npmjs.com/package/customize-cra)
+
+## 과정 주제
 
 1. [ ]  React ([🔗](https://beta.reactjs.org/))
 1. [ ]  Webpack ([🔗](https://webpack.js.org/))
