@@ -1,6 +1,10 @@
 # React ⌁ 네카라쿠배 3기
 
-학습 주제
+## 학습 주제
+
+Create React App 툴체인을 사용해 React 앱 만들기 (IE 11 지원)
+
+## 과정 주제
 
 1. [ ]  React ([🔗](https://beta.reactjs.org/))
 1. [ ]  Webpack ([🔗](https://webpack.js.org/))
