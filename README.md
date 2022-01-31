@@ -1,6 +1,10 @@
 # React ⌁ 네카라쿠배 3기
 
-학습 주제
+## 학습 주제
+
+Webpack 모듈 번들러 + esbuild-loader를 사용해 React 개발 환경 구성
+
+## 과정 주제
 
 1. [ ]  React ([🔗](https://beta.reactjs.org/))
 1. [ ]  Webpack ([🔗](https://webpack.js.org/))
