@@ -1,6 +1,43 @@
 # React ⌁ 네카라쿠배 3기
 
-학습 주제
+## 학습 주제
+
+Vite 툴체인을 사용해 React 앱 만들기 (TypeScript, ESLint 구성, 접근성 검사 도구, SVGR 설정, IE 11 지원)
+
+### ESLint 구성
+
+```sh
+npx eslint --init
+```
+
+- [eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+- [eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+
+### 접근성 검사 도구 설정
+
+```sh
+npm i -D @axe-core/react
+```
+
+- [@axe-core/react](https://www.npmjs.com/package/@axe-core/react)
+
+### SVGR 설정
+
+```sh
+npm i -D vite-plugin-svgr
+```
+
+- [vite-plugin-svgr](https://github.com/pd4d10/vite-plugin-svgr)
+
+### IE 지원
+
+```sh
+npm i -D @vitejs/plugin-legacy
+```
+
+- [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy)
+
+## 과정 주제
 
 1. [ ]  React ([🔗](https://beta.reactjs.org/))
 1. [ ]  Webpack ([🔗](https://webpack.js.org/))
