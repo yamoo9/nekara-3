@@ -1,0 +1,10 @@
+.greetingMessage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #efcf07;
+  background: #111;
+  font-size: 4rem;
+  font-weight: 100;
+}

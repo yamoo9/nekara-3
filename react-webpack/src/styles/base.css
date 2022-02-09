@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+#root {
+  min-height: 100vh;
+}

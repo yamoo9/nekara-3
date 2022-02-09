@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/components/greet/greet.css"],
+  "sourcesContent": [".greetingMessage {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  color: #efcf07;\n  background: #111;\n  font-size: 4rem;\n  font-weight: 100;\n}"],
+  "mappings": ";AAAA;AACE;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AAAA;",
+  "names": []
+}

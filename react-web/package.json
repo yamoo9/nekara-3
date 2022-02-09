@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "name": "yamoo9-dx--web-react",
+  "scripts": {
+    "start": "live-server src"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.13",
+    "eslint": "8.8.0",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "live-server": "1.2.1"
+  }
+}
