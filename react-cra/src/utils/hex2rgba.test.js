@@ -1,5 +1,21 @@
 import { hex2rgba } from './hex2rgba';
 
+const COLORS = {
+  white: '#fff',
+  black: '#000',
+  gray: {
+    100: '#f9f9f9',
+    200: '#9d9797',
+    300: '#505050',
+    400: '#323131',
+  },
+  primary: {
+    100: '#6e73dc',
+    200: '#4a4fae',
+    300: '#303368',
+  }
+}
+
 test(`hex2rgba('#333', 0.56) => rgba(51,51,51, 0.56)`, () => {
   expect(hex2rgba('#333', 0.56).replace(/\s+/g, '')).toBe('rgba(51,51,51,0.56)');
 });
