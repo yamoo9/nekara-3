@@ -1,12 +1,11 @@
 // import logo from 'assets/logo.svg';
 import './app.css';
-import { SVGLogo } from 'components';
+import { HomeLink } from 'components';
 
 export default function App() {
   return (
     <div className="App">
-      <SVGLogo />
-      <SVGLogo title="Bank Sign" lang="en" />
+      <HomeLink />
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="React" />

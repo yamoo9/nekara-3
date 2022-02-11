@@ -1,0 +1,7 @@
+.homelink {
+  display: inline-flex;
+}
+
+.homelink img {
+  vertical-align: middle;
+}

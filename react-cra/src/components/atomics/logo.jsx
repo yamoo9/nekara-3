@@ -29,7 +29,7 @@ Logo.defaultProps = {
   export function SVGLogo({ title }) {
     // webpack에 의해 동적으로 생성된 이미지 경로
     // console.log(banksignImageURL); 
-    return <BankSign data-testid="logo" title={title} />;
+    return <BankSign data-testid="logo-svg" title={title} />;
   }
   
   SVGLogo.defaultProps = {
