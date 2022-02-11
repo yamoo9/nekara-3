@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require('path');
 const ROOT_DIR = process.cwd();
 
@@ -44,10 +46,10 @@ const webpackConfig = ({ development, production, analyzer }) => {
         import: path.resolve(ROOT_DIR, 'src/index.jsx'),
         dependOn: 'vender',
       },
-      sub: {
-        dependOn: 'vender',
-      },
-      other: {},
+      // sub: {
+      //   import: path.resolve(ROOT_DIR, 'src/sub.jsx'),
+      //   dependOn: 'vender',
+      // },
       vender: ['react', 'react-dom'],
     },
 
@@ -132,6 +134,7 @@ const webpackConfig = ({ development, production, analyzer }) => {
         },
       },
     },
+
   };
 };
 
