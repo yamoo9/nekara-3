@@ -24,7 +24,9 @@
       "react-app/jest"
     ],
     "rules": {
-      "no-unused-vars": "warn"
+      "no-unused-vars": "warn",
+      "testing-library/no-debugging-utils": "off",
+      "testing-library/no-node-access": "off"
     }
   },
   "browserslist": {

@@ -1,11 +1,14 @@
-import logo from 'assets/logo.svg';
+// import logo from 'assets/logo.svg';
 import './app.css';
-
+import { SVGLogo } from 'components';
 
 export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <SVGLogo />
+      <SVGLogo title="Bank Sign" lang="en" />
+
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="React" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,7 +21,7 @@ export default function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }

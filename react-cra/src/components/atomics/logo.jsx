@@ -3,8 +3,8 @@
 // 함수 컴포넌트 (props) => ReactNode[]
 
 import { getPublicAsset } from 'utils';
-import banksignImageURL from 'assets/banksign.svg';
 import { ReactComponent as BankSign } from 'assets/banksign.svg';
+// import banksignImageURL from 'assets/banksign.svg';
 
 
 // SVG 파일을 HTML 웹 문서에서 활용하는 방법 1. link (url)
@@ -27,8 +27,9 @@ Logo.defaultProps = {
 // SVG 파일을 HTML 웹 문서에서 활용하는 방법 2. embed
   // <svg></svg>
   export function SVGLogo({ title }) {
-    console.log(banksignImageURL); // webpack에 의해 동적으로 생성된 이미지 경로
-    return <BankSign title={title} />
+    // webpack에 의해 동적으로 생성된 이미지 경로
+    // console.log(banksignImageURL); 
+    return <BankSign data-testid="logo" title={title} />;
   }
   
   SVGLogo.defaultProps = {
