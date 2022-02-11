@@ -1,3 +1,20 @@
+:root {
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-100: #c6c6c6;
+  --color-gray-200: #7b7b7b;
+  --color-gray-300: #3a3a3a;
+
+  --color-primary-100: #3459a6;
+  --color-primary-200: #193268;
+  
+  --color-secondary-100: #26c98b;
+  --color-secondary-200: #167b54;
+  
+  --color-accent-100: #edd30f;
+  --color-accent-200: #b5a10f;
+}
+
 .demo {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
