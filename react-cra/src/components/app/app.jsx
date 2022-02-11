@@ -1,6 +1,6 @@
 // import logo from 'assets/logo.svg';
 import './app.css';
-import { HomeLink, Button } from 'components';
+import { HomeLink, Button, Box } from 'components';
 
 export default function App() {
   return (
@@ -9,17 +9,21 @@ export default function App() {
       {/* @emotion/react 패키지에서 css prop를 사용하면 쉬워져요! */}
       <HomeLink style={{ margin: '3rem' }} />
 
-      <div
+      <Box
+        as="section"
+        aria-label="버튼 그룹"
+        role="group"
+        className="buttonGroup"
+        my={30}
         style={{
           display: 'flex',
-          // flexDirection: 'row',
           justifyContent: 'center',
           gap: 10,
         }}
       >
         <Button primary>버튼</Button>
         <Button to="https://euid.dev" secondary noBorder>이듬</Button>
-      </div>
+      </Box>
 
       {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="React" />
