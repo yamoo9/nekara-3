@@ -15,7 +15,7 @@ import styles from './box.module.scss';
 // marginBottom
 // mb
 
-export default function Box({ as, mx, my, style, ...restProps }) {
+export default function Box({ as: Component, mx, my, style, ...restProps }) {
   const boxStyle = {};
 
   if (mx) {
@@ -28,22 +28,9 @@ export default function Box({ as, mx, my, style, ...restProps }) {
     boxStyle.marginBottom = my;
   }
 
-  // JSX → React.createElement API
-  return React.createElement(
-    /* type */
-    as, 
-    /* props (with children) */
-    {
-      style: {
-        ...boxStyle,
-        ...style,
-      },
-      ...restProps,
-    }
-  );
-
   // JSX
-  // return <as style={{ ...boxStyle, ...style }} {...restProps} />;
+  // React Element → type: string | Function | Class
+  return <Component style={{ ...boxStyle, ...style }} {...restProps} />;
 }
 
 Box.defaultProps = {

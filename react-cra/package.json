@@ -45,5 +45,8 @@
       "last 1 safari version",
       "last 1 edge version"
     ]
+  },
+  "devDependencies": {
+    "styled-components": "5.3.3"
   }
 }

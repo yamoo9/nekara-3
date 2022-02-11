@@ -1,6 +1,6 @@
 // import logo from 'assets/logo.svg';
 import './app.css';
-import { HomeLink, Button, Box } from 'components';
+import { A11yHidden, HomeLink, Button, Box } from 'components';
 
 export default function App() {
   return (
@@ -10,9 +10,9 @@ export default function App() {
       <HomeLink style={{ margin: '3rem' }} />
 
       <Box
-        as="section"
-        aria-label="버튼 그룹"
+        as="article"
         role="group"
+        aria-labelledby="labelOfArticle"
         className="buttonGroup"
         my={30}
         style={{
@@ -21,8 +21,9 @@ export default function App() {
           gap: 10,
         }}
       >
-        <Button primary>버튼</Button>
-        <Button to="https://euid.dev" secondary noBorder>이듬</Button>
+        <A11yHidden as="h2" id="labelOfArticle">로그인 버튼 그룹</A11yHidden>
+        <Button primary>로그인</Button>
+        <Button to="https://euid.dev" secondary noBorder>회원가입</Button>
       </Box>
 
       {/* <header className="App-header">
