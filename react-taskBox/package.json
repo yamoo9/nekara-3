@@ -1,0 +1,58 @@
+{
+  "name": "yamoo9-dx--cra-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "17.0.2",
+    "react-app-polyfill": "3.0.0",
+    "react-dom": "17.0.2",
+    "react-scripts": "5.0.0",
+    "web-vitals": "2.1.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "5.16.1",
+    "@testing-library/react": "12.1.2",
+    "@testing-library/user-event": "13.5.0",
+    "babel-plugin-styled-components": "2.0.2",
+    "customize-cra": "1.0.0",
+    "esbuild-loader": "2.18.0",
+    "react-app-rewired": "2.1.11",
+    "speed-measure-webpack-plugin": "1.5.0",
+    "styled-components": "5.3.3"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "no-undef": "off",
+      "no-unused-vars": "off",
+      "react/prop-types": "off",
+      "react/jsx-no-undef": "off",
+      "react/react-in-jsx-scope": "off",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn"
+    }
+  },
+  "browserslist": {
+    "production": [
+      "defaults",
+      ">1% in KR",
+      "not dead",
+      "ie 11"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version",
+      "last 1 edge version"
+    ]
+  }
+}
