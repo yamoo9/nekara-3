@@ -1,4 +1,4 @@
-import { Checker } from './checker';
+import { PureChecker as Checker } from './checker';
 
 // Meta 데이터 작성
 // 기본 내보내기 필요
