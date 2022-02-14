@@ -1,7 +1,17 @@
+/**@jsx jsx */
+import { css, jsx } from '@emotion/react'
 import React, { useState, useEffect } from 'react';
 import { Container } from './randomCounter.styled';
 import { getRandomCount } from '@/utils';
 
+// Emotion's Composition
+const base = css`
+  color: #e4fe48;
+`;
+
+const extend = css`
+  color: #1fa7fd;
+`;
 
 const DOC_TITLE = document.title;
 
@@ -33,6 +43,8 @@ export default function RandomCounter({
 
   return (
     <Container
+      // css={[base, extend]}
+      css={[extend, base]}
       style={!isComplete ? null : { animationName: 'none' }}
     >
       {count}

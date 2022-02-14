@@ -1,4 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+// import styled, { keyframes } from 'styled-components';
+import { keyframes } from '@emotion/react/macro';
+import styled from '@emotion/styled/macro';
 
 const blink = keyframes`
   0% { opacity: 0; }
