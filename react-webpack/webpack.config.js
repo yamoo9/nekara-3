@@ -42,15 +42,7 @@ const webpackConfig = ({ development, production, analyzer }) => {
     },
 
     entry: {
-      main: {
-        import: path.resolve(ROOT_DIR, 'src/index.jsx'),
-        dependOn: 'vender',
-      },
-      // sub: {
-      //   import: path.resolve(ROOT_DIR, 'src/sub.jsx'),
-      //   dependOn: 'vender',
-      // },
-      vender: ['react', 'react-dom'],
+      main: path.resolve(ROOT_DIR, 'src/index.jsx'),
     },
 
     output: {
@@ -126,11 +118,16 @@ const webpackConfig = ({ development, production, analyzer }) => {
       ],
       splitChunks: {
         cacheGroups: {
-          reactResources: {
+          react: {
             test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
-            name: 'reactResources',
+            name: 'react',
             chunks: 'all',
           },
+          // axios: {
+          //   test: /[\\/]node_modules[\\/]axios[\\/]/,
+          //   name: 'axios',
+          //   chunks: 'all',
+          // },
         },
       },
     },
