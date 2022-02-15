@@ -3,8 +3,8 @@ import 'react-app-polyfill/stable';
 
 import React, { StrictMode } from 'react';
 import { render } from 'react-dom';
-import { App } from '@/components';
-import '@/styles/global.css';
+import { GlobalStyle } from '@/styles/global.css';
+import App from '@/app/app';
 import 'reportWebVitals';
 
 render(
