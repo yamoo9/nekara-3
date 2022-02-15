@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro';
 
 export const Container = styled.div`
   display: flex;
@@ -6,5 +6,3 @@ export const Container = styled.div`
   align-items: center;
   min-height: inherit;
 `;
-
-// Container.displayName = 'AppContainer';

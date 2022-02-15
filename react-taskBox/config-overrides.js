@@ -1,35 +1,20 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-
 const path = require('path');
+const { NODE_ENV: mode } = process.env;
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const {
   override,
+  addBabelPreset,
+  addBabelPlugin,
   addWebpackAlias,
-  useBabelRc,
-  removeModuleScopePlugin,
 } = require('customize-cra');
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 
-const { NODE_ENV: mode } = process.env;
 
-module.exports = override(
+const overrideConfig = override(
   /* webpack 사용자 정의 구성 덮어쓰기 */
   (config) => {
     /* 개발 모드 */
     if (mode === 'development') {
-      config.module = {
-        rules: [
-          ...config.module.rules,
-          {
-            test: /\.jsx?$/i,
-            exclude: /node_modules|public/,
-            loader: 'esbuild-loader',
-            options: {
-              loader: 'jsx',
-              target: 'es2015',
-            },
-          },
-        ],
-      };
+      
     }
 
     /* 배포 모드 */
@@ -41,16 +26,12 @@ module.exports = override(
     return config;
   },
 
-  useBabelRc(),
-  removeModuleScopePlugin(),
-
-  // addBabelPreset('@emotion/babel-preset-css-prop'),
-  // addBabelPlugins([
-  //   "@emotion",
-  //   "babel-plugin-styled-components"
-  // ]),
+  addBabelPreset('@emotion/babel-preset-css-prop'),
+  addBabelPlugin('@emotion'),
 
   addWebpackAlias({
     '@': path.resolve(__dirname, 'src'),
   })
 );
+
+module.exports = overrideConfig;

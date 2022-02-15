@@ -1,10 +1,9 @@
-/**@jsx jsx */
-import { css, jsx } from '@emotion/react'
+import { css } from '@emotion/react'
 import React, { useState, useEffect } from 'react';
 import { Container } from './randomCounter.styled';
 import { getRandomCount } from '@/utils';
 
-// Emotion's Composition
+
 const base = css`
   color: #e4fe48;
 `;
@@ -14,6 +13,7 @@ const extend = css`
 `;
 
 const DOC_TITLE = document.title;
+
 
 export default function RandomCounter({
   min = 10,
