@@ -1,45 +1,33 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState, createElement as h } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+const Div = (props) => <div {...props} />
 
 function App() {
-  const [count, setCount] = useState(0)
+  // React Hooks
+  // 상태 관리 훅
+  // [useState], useReducer
 
+  // App 컴포넌트가 관리하는 상태(state)
+  const [nums] = useState(Array(100).fill(null).map((n, i) => ({
+    id: `fdkjfs-${i}`,
+    content: i * i
+  })));
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      {
+        // App 컴포넌트의 children [VDOMNode, null, string]
+        // React 컴포넌트의 자식 노드로 객체가 설정될 수 있을까?
+        nums.map(({ id, content }, idx) => {
+          return (
+            <Div key={id} children={content} />
+          )
+        })
+      }
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
