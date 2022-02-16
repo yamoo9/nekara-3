@@ -1,18 +1,13 @@
 
-import React from 'react';
-import styled from '@emotion/styled';
 import { string, number, bool, func, oneOfType } from 'prop-types';
-
-import { theme } from '@/styles/theme';
-import _loading from '@/assets/svgs/checker-loading.svg';
-import _unchecked from '@/assets/svgs/checker-unchecked.svg';
-import _checked from '@/assets/svgs/checker-checked.svg';
-
+import { Wrapper } from './checker.styled';
 
 export const Checker = ({ label, checked, loading, size, onChange, ...restProps }) => {
 
+  // transient prop -> $prop
+  // dont render actual dom
   return (
-    <Checker.Wrapper size={size} checked={checked} loading={loading.toString()}>
+    <Wrapper $size={size} checked={checked} $loading={loading.toString()}>
       <input
         type="checkbox"
         aria-label={label}
@@ -20,7 +15,7 @@ export const Checker = ({ label, checked, loading, size, onChange, ...restProps 
         onChange={onChange}
         {...restProps}
       />
-    </Checker.Wrapper>
+    </Wrapper>
   );
 };
 
@@ -44,53 +39,3 @@ Checker.propTypes = {
   /** Checker 컴포넌트의 상태 변경 이벤트 핸들러 */
   onChange: func,
 };
-
-// styled-components API 유사한 문법 사용
-Checker.Wrapper = styled.span`
-  position: relative;
-  display: inline-block;
-  background: ${theme.colors.white};
-  border-radius: ${({size}) => `${size * 0.7}%`};
-
-  ${
-    ({ size }) => {
-      let value = typeof size === 'number' ? `${size}px` : size;
-      return {
-        width: value,
-        height: value
-      }
-    }
-  }
-
-  :focus-within {
-    outline: 3px solid ${theme.colors.accent['200']};
-    border-radius: 6px;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: inherit;
-    height: inherit;
-    background: url(${({ loading, checked }) => {
-
-      let bgSource = _unchecked;
-      if (checked) bgSource = _checked;
-      if (loading === 'true') bgSource = _loading;
-      return bgSource;
-
-    }}) no-repeat center center / cover;
-  }
-
-  & input {
-    cursor: pointer;
-    opacity: 0;
-    position: relative;
-    z-index: 10;
-    margin: 0;
-    width: inherit;
-    height: inherit;
-  }
-`;
