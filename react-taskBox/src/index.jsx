@@ -9,6 +9,7 @@ import 'reportWebVitals';
 
 render(
   <StrictMode>
+    <GlobalStyle />
     <App />
   </StrictMode>,
   document.getElementById('root')

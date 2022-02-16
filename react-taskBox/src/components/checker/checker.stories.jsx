@@ -7,7 +7,7 @@ export default {
   component: Checker,
   // 모든 컴포넌트의 기본 args
   args: {
-    id: 'task-wkds',
+    label: '저장',
     checked: false,
     loading: false,
   },

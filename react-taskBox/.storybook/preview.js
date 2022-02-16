@@ -1,5 +1,19 @@
-// import '@/styles/global.css';
 import ko from 'axe-core/locales/ko.json';
+
+// import '@/styles/global.css';
+import { GlobalStyle } from '@/styles/GlobalStyle.emotion';
+
+// 프리뷰 → 꾸밈(decorators)
+export const decorators = [
+  (Story) => {
+    return (
+      <>
+        {/* <GlobalStyle /> */}
+        <Story />
+      </>
+    )
+  }
+];
 
 
 export const parameters = {
