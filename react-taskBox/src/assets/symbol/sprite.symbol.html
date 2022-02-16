@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<script src="https://rawgit.com/jonathantneal/svg4everybody/master/dist/svg4everybody.js"></script>
+		<script>svg4everybody();</script>
+		<title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+
+<!--
+
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-checker-checked-dims { width: 24px; height: 24px; }
+	.svg-checker-loading-dims { width: 24px; height: 24px; }
+	.svg-checker-unchecked-dims { width: 24px; height: 24px; }
+	.svg-logo-dark-dims { width: 24px; height: 20px; }
+	.svg-logo-light-dims { width: 24px; height: 20px; }
+	.svg-pin-loading-dims { width: 24px; height: 24px; }
+	.svg-pin-pinned-dims { width: 24px; height: 24px; }
+	.svg-pin-unpinned-dims { width: 24px; height: 24px; }
+	.svg-togglebutton-closed-dims { width: 24px; height: 24px; }
+	.svg-togglebutton-openned-dims { width: 24px; height: 24px; }
+</style>
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+
+<!--
+
+Inline <symbol> SVG sprite
+====================================================================================================
+This is an inlined version of the generated SVG sprite. The single images may be <use>d everywhere
+below within this document. Please see
+
+	https://github.com/svg-sprite/svg-sprite/blob/1.5.x/docs/configuration.md#defs--symbol-mode
+
+for further details on how to create this embeddable sprite variant.
+
+-->
+
+<svg width="0" height="0" style="position:absolute">
+		<symbol fill="none" viewBox="0 0 24 24" id="checker-checked" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="22" height="22" rx="8" stroke="#202656" stroke-width="2"/><path d="M7.311 10.738a1 1 0 00-1.463 1.364l1.463-1.364zm4.077 5.842l-.731.682a1 1 0 001.566-.132l-.835-.55zm6.868-8.61a1 1 0 10-1.67-1.1l1.67 1.1zM5.848 12.102l4.809 5.16 1.463-1.364-4.809-5.16-1.463 1.364zm6.375 5.028l6.033-9.16-1.67-1.1-6.033 9.16 1.67 1.1z" fill="#202656"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 24" id="checker-loading" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="22" height="22" rx="8" stroke="#F4F5F8" stroke-width="2"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 24" id="checker-unchecked" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="22" height="22" rx="8" stroke="#ADB3BD" stroke-width="2"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 20" id="logo-dark" xmlns="http://www.w3.org/2000/svg"><path d="M4.043 6.737l2.595-1.44-1.449-2.413h13.622l-6.809 11.352-1.448-2.417-2.595 1.444L12.002 20 24 0H0l4.043 6.737z" fill="#fff"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 20" id="logo-light" xmlns="http://www.w3.org/2000/svg"><path d="M4.043 6.737l2.595-1.44-1.449-2.413h13.622l-6.809 11.352-1.448-2.417-2.595 1.444L12.002 20 24 0H0l4.043 6.737z" fill="#202656"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 24" id="pin-loading" xmlns="http://www.w3.org/2000/svg"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" fill="#F4F5F8"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 24" id="pin-pinned" xmlns="http://www.w3.org/2000/svg"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" fill="#202656"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 24" id="pin-unpinned" xmlns="http://www.w3.org/2000/svg"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" fill="#ADB3BD"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 24" id="togglebutton-closed" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M19 6H5a1 1 0 000 2h14a1 1 0 100-2zm0 5H5a1 1 0 100 2h14a1 1 0 100-2zM5 16h14a1 1 0 110 2H5a1 1 0 110-2z" fill="#202656"/></symbol>
+		<symbol fill="none" viewBox="0 0 24 24" id="togglebutton-openned" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 10.586l6.351-6.351a1.01 1.01 0 011.427-.013c.39.39.385 1.03-.013 1.427L13.415 12l6.35 6.351a1.01 1.01 0 01.013 1.427 1.01 1.01 0 01-1.427-.013L12 13.415l-6.351 6.35a1.01 1.01 0 01-1.427.013 1.01 1.01 0 01.013-1.427L10.585 12l-6.35-6.351a1.01 1.01 0 01-.013-1.427 1.01 1.01 0 011.427.013L12 10.585z" fill="#202656"/></symbol>
+</svg>
+
+<!--
+====================================================================================================
+-->
+
+		<header>
+			<h1>SVG <code>&lt;symbol&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite in conjunction with inline SVG. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-html5" target="_blank" rel="noopener noreferrer">support inline SVG</a> for these techniques to work.</li>
+				<li>The embedded sprite (A) slightly differs from the generated external one. Please <a href="https://github.com/svg-sprite/svg-sprite/blob/1.5.x/docs/configuration.md#defs--symbol-mode" target="_blank" rel="noopener noreferrer">see the documentation</a> for details on how to create such an embeddable sprite.</li>
+				<li>Internet Explorer up to version 11 doesn't support external sprites for use with inline SVG. For IE 9-11, you may polyfill this functionality with <a href="https://github.com/jonathantneal/svg4everybody" target="_blank" rel="noopener noreferrer">SVG for Everybody</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+
+			<h3>A) Inline SVG with embedded sprite</h3>
+			<ul>
+
+				<li title="checker-checked">
+					<div class="icon-box">
+
+						<!-- checker-checked -->
+						<svg class="svg-checker-checked-dims">
+							<use xlink:href="#checker-checked"></use>
+						</svg>
+
+					</div>
+					<h2>checker-checked</h2>
+				</li>
+				<li title="checker-loading">
+					<div class="icon-box">
+
+						<!-- checker-loading -->
+						<svg class="svg-checker-loading-dims">
+							<use xlink:href="#checker-loading"></use>
+						</svg>
+
+					</div>
+					<h2>checker-loading</h2>
+				</li>
+				<li title="checker-unchecked">
+					<div class="icon-box">
+
+						<!-- checker-unchecked -->
+						<svg class="svg-checker-unchecked-dims">
+							<use xlink:href="#checker-unchecked"></use>
+						</svg>
+
+					</div>
+					<h2>checker-unchecked</h2>
+				</li>
+				<li title="logo-dark">
+					<div class="icon-box">
+
+						<!-- logo-dark -->
+						<svg class="svg-logo-dark-dims">
+							<use xlink:href="#logo-dark"></use>
+						</svg>
+
+					</div>
+					<h2>logo-dark</h2>
+				</li>
+				<li title="logo-light">
+					<div class="icon-box">
+
+						<!-- logo-light -->
+						<svg class="svg-logo-light-dims">
+							<use xlink:href="#logo-light"></use>
+						</svg>
+
+					</div>
+					<h2>logo-light</h2>
+				</li>
+				<li title="pin-loading">
+					<div class="icon-box">
+
+						<!-- pin-loading -->
+						<svg class="svg-pin-loading-dims">
+							<use xlink:href="#pin-loading"></use>
+						</svg>
+
+					</div>
+					<h2>pin-loading</h2>
+				</li>
+				<li title="pin-pinned">
+					<div class="icon-box">
+
+						<!-- pin-pinned -->
+						<svg class="svg-pin-pinned-dims">
+							<use xlink:href="#pin-pinned"></use>
+						</svg>
+
+					</div>
+					<h2>pin-pinned</h2>
+				</li>
+				<li title="pin-unpinned">
+					<div class="icon-box">
+
+						<!-- pin-unpinned -->
+						<svg class="svg-pin-unpinned-dims">
+							<use xlink:href="#pin-unpinned"></use>
+						</svg>
+
+					</div>
+					<h2>pin-unpinned</h2>
+				</li>
+				<li title="togglebutton-closed">
+					<div class="icon-box">
+
+						<!-- togglebutton-closed -->
+						<svg class="svg-togglebutton-closed-dims">
+							<use xlink:href="#togglebutton-closed"></use>
+						</svg>
+
+					</div>
+					<h2>togglebutton-closed</h2>
+				</li>
+				<li title="togglebutton-openned">
+					<div class="icon-box">
+
+						<!-- togglebutton-openned -->
+						<svg class="svg-togglebutton-openned-dims">
+							<use xlink:href="#togglebutton-openned"></use>
+						</svg>
+
+					</div>
+					<h2>togglebutton-openned</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+
+B) Inline SVG with external sprite (IE 9-11 with polyfill only)
+====================================================================================================
+These SVG images make use of an URL + fragment identifiers (IDs) and refer to the regular external
+SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
+
+-->
+
+			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
+			<ul>
+
+				<li title="checker-checked">
+					<div class="icon-box">
+
+						<!-- checker-checked -->
+						<svg class="svg-checker-checked-dims">
+							<use xlink:href="sprites.svg#checker-checked"></use>
+						</svg>
+
+					</div>
+					<h2>checker-checked</h2>
+				</li>
+				<li title="checker-loading">
+					<div class="icon-box">
+
+						<!-- checker-loading -->
+						<svg class="svg-checker-loading-dims">
+							<use xlink:href="sprites.svg#checker-loading"></use>
+						</svg>
+
+					</div>
+					<h2>checker-loading</h2>
+				</li>
+				<li title="checker-unchecked">
+					<div class="icon-box">
+
+						<!-- checker-unchecked -->
+						<svg class="svg-checker-unchecked-dims">
+							<use xlink:href="sprites.svg#checker-unchecked"></use>
+						</svg>
+
+					</div>
+					<h2>checker-unchecked</h2>
+				</li>
+				<li title="logo-dark">
+					<div class="icon-box">
+
+						<!-- logo-dark -->
+						<svg class="svg-logo-dark-dims">
+							<use xlink:href="sprites.svg#logo-dark"></use>
+						</svg>
+
+					</div>
+					<h2>logo-dark</h2>
+				</li>
+				<li title="logo-light">
+					<div class="icon-box">
+
+						<!-- logo-light -->
+						<svg class="svg-logo-light-dims">
+							<use xlink:href="sprites.svg#logo-light"></use>
+						</svg>
+
+					</div>
+					<h2>logo-light</h2>
+				</li>
+				<li title="pin-loading">
+					<div class="icon-box">
+
+						<!-- pin-loading -->
+						<svg class="svg-pin-loading-dims">
+							<use xlink:href="sprites.svg#pin-loading"></use>
+						</svg>
+
+					</div>
+					<h2>pin-loading</h2>
+				</li>
+				<li title="pin-pinned">
+					<div class="icon-box">
+
+						<!-- pin-pinned -->
+						<svg class="svg-pin-pinned-dims">
+							<use xlink:href="sprites.svg#pin-pinned"></use>
+						</svg>
+
+					</div>
+					<h2>pin-pinned</h2>
+				</li>
+				<li title="pin-unpinned">
+					<div class="icon-box">
+
+						<!-- pin-unpinned -->
+						<svg class="svg-pin-unpinned-dims">
+							<use xlink:href="sprites.svg#pin-unpinned"></use>
+						</svg>
+
+					</div>
+					<h2>pin-unpinned</h2>
+				</li>
+				<li title="togglebutton-closed">
+					<div class="icon-box">
+
+						<!-- togglebutton-closed -->
+						<svg class="svg-togglebutton-closed-dims">
+							<use xlink:href="sprites.svg#togglebutton-closed"></use>
+						</svg>
+
+					</div>
+					<h2>togglebutton-closed</h2>
+				</li>
+				<li title="togglebutton-openned">
+					<div class="icon-box">
+
+						<!-- togglebutton-openned -->
+						<svg class="svg-togglebutton-openned-dims">
+							<use xlink:href="sprites.svg#togglebutton-openned"></use>
+						</svg>
+
+					</div>
+					<h2>togglebutton-openned</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Wed, 16 Feb 2022 07:53:41 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
