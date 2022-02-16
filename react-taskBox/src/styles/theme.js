@@ -1,13 +1,13 @@
 export const theme = {
   colors: {
-    White: '#ffffff',
-    Primary: {
+    white: '#ffffff',
+    primary: {
       50: '#f4f5f8',
       100: '#adb3bd',
       200: '#7e848d',
       300: '#202656',
     },
-    Accent: {
+    accent: {
       50: '#fcb90d',
       100: '#e21414',
     },

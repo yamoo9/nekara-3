@@ -1,4 +1,4 @@
-import { PureChecker as Checker } from './checker';
+import { Checker } from './checker';
 
 // Meta 데이터 작성
 // 기본 내보내기 필요
@@ -7,9 +7,8 @@ export default {
   component: Checker,
   // 모든 컴포넌트의 기본 args
   args: {
+    ...Checker.defaultProps,
     label: '저장',
-    checked: false,
-    loading: false,
   },
 };
 
@@ -30,4 +29,10 @@ Checked.args = {
 export const Loading = Template.bind({});
 Loading.args = {
   loading: true,
+};
+
+export const BigSize = Template.bind({});
+BigSize.args = {
+  checked: true,
+  size: 64
 };
