@@ -1,9 +1,9 @@
 import 'react-app-polyfill/ie11';
 import 'react-app-polyfill/stable';
 
-import React, { StrictMode } from 'react';
+import { StrictMode } from 'react';
 import { render } from 'react-dom';
-import { GlobalStyle } from '@/styles/global.css';
+import { GlobalStyle } from '@/styles/GlobalStyle.emotion';
 import App from '@/app/app';
 import 'reportWebVitals';
 

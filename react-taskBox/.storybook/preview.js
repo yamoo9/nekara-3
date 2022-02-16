@@ -1,3 +1,4 @@
+// import '@/styles/global.css';
 import ko from 'axe-core/locales/ko.json';
 
 

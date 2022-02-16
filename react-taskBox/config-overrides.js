@@ -14,7 +14,8 @@ const overrideConfig = override(
   (config) => {
     /* 개발 모드 */
     if (mode === 'development') {
-      
+      // [ ] esbuild-loader
+      // [x] babel-loader
     }
 
     /* 배포 모드 */
