@@ -62,7 +62,12 @@ Checker.Wrapper = styled.span`
     }
   }
 
-  &::before {
+  :focus-within {
+    outline: 3px solid ${theme.colors.accent['200']};
+    border-radius: 6px;
+  }
+
+  &::after {
     content: '';
     position: absolute;
     top: 0;

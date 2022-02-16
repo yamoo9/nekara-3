@@ -10,6 +10,17 @@ export default {
     ...Checker.defaultProps,
     label: '저장',
   },
+  // 개별 아규멘트에 대한 타입 설정
+  argTypes: {
+    size: {
+      control: {
+        type: 'range',
+        min: 12,
+        step: 1,
+        max: 100
+      }
+    }
+  }
 };
 
 // Component 스토리 작성

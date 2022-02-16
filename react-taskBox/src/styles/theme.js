@@ -10,6 +10,7 @@ export const theme = {
     accent: {
       50: '#fcb90d',
       100: '#e21414',
+      200: '#1fa7fd',
     },
   },
   fontSize: {
