@@ -2,14 +2,13 @@ import React from 'react';
 import { string } from 'prop-types';
 
 import './App.css';
-import { useState, useRef } from 'react'
+import { useState, useRef } from 'react';
 import { EuidInput } from './stateless/euidInput';
 // import { List } from './statful/List';
 
 /* -------------------------------------------------------------------------- */
 
 export default function App() {
-
   // DOM 노드 참조를 위한 Ref 생성
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
@@ -42,31 +41,39 @@ export default function App() {
       <form onSubmit={handleSubmit}>
         <EuidInput
           id="email"
-          ref={emailRef}
+          forwardRef={emailRef}
           label="email"
           type="email"
           value={email}
-          onChange={e => {
+          onChange={(e) => {
             setEmail(e.target.value);
           }}
-          inputProps={{ 
-            placeholder: 'yamoo9@euid.dev' 
+          inputProps={{
+            placeholder: 'yamoo9@euid.dev',
           }}
         />
         <EuidInput
-          ref={passwordRef}
+          forwardRef={passwordRef}
           id="password"
           label="password"
           type="password"
           value={password}
-          onChange={e => {
+          onChange={(e) => {
             setPassword(e.target.value);
           }}
           inputProps={{ placeholder: '숫자, 문자 조합 6자리 이상' }}
         />
         {/* <button type="submit">로그인</button> */}
-        <button type="button" onClick={handleFocusEmail} style={{marginRight: 6}}>email 인풋에 초점 이동</button>
-        <button type="button" onClick={handleFocusPassword}>password 인풋에 초점 이동</button>
+        <button
+          type="button"
+          onClick={handleFocusEmail}
+          style={{ marginRight: 6 }}
+        >
+          email 인풋에 초점 이동
+        </button>
+        <button type="button" onClick={handleFocusPassword}>
+          password 인풋에 초점 이동
+        </button>
       </form>
     </div>
   );

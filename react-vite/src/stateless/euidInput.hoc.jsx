@@ -1,23 +1,23 @@
-import { any, string, func, object, shape } from 'prop-types';
+import { forwardRef } from 'react';
+import { string, func, object } from 'prop-types';
 import styles from './euidInput.module.css';
 
-export function EuidInput({
+function PureEuidInput({
   id,
   label,
   type,
   value,
   onChange,
   inputProps,
-  forwardRef,
   ...restProps
-}) {
+}, ref) {
   return (
     <div className={styles.formControl} {...restProps}>
       <label className={styles.label} htmlFor={id}>
         {label}
       </label>
       <input
-        ref={forwardRef}
+        ref={ref}
         className={styles.input}
         id={id}
         type={type}
@@ -30,18 +30,19 @@ export function EuidInput({
   );
 }
 
-EuidInput.defaultProps = {
+PureEuidInput.defaultProps = {
   type: 'text',
 };
 
-EuidInput.propTypes = {
+PureEuidInput.propTypes = {
   type: string,
   id: string.isRequired,
   label: string.isRequired,
   value: string,
   onChange: func,
   inputProps: object,
-  forwardRef: shape({
-    current: any
-  })
 };
+
+// React 컴포넌트 → React.forwardRef(컴포넌트) : ref 전달 → 고차 컴포넌트 반환
+export const EuidInput = forwardRef(PureEuidInput);
+EuidInput.displayName = 'EuidInput';
