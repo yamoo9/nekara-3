@@ -1,0 +1,50 @@
+import { Logo } from './logo';
+
+export default {
+  title: 'TaskBox / Atomics / Logo',
+  component: Logo,
+  args: {
+    ...Logo.defaultProps,
+  },
+  argTypes: {
+    size: {
+      control: {
+        type: 'range',
+        min: 14,
+        step: 2,
+        max: 100
+      }
+    }
+  }
+}
+
+const Template = args => <Logo {...args} />
+
+export const LogoLight = Template.bind({});
+
+export const LogoHomeLink = Template.bind({});
+LogoHomeLink.args = {
+  homelink: true
+}
+
+export const LogoDark = Template.bind({});
+LogoDark.args = {
+  dark: true,
+};
+LogoDark.parameters = {
+  backgrounds: {
+    default: 'dark',
+    values: [
+      { name: 'dark', value: '#111' }
+    ]
+  }
+}
+
+export const LogoDarkHomeLink = Template.bind({});
+LogoDarkHomeLink.args = {
+  dark: true,
+  homelink: true,
+};
+LogoDarkHomeLink.parameters = {
+  ...LogoDark.parameters,
+}
