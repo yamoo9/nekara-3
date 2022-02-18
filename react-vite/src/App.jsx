@@ -1,30 +1,45 @@
-
-// import logo from './logo.svg';
-import React from 'react'
+import React from 'react';
+import { string } from 'prop-types';
 
 import './App.css';
-import { List } from './statful/List'
+import { List } from './statful/List';
 
-// 상태가 없는 컴포넌트
-// 상태를 가지는 컴포넌트로 변경
-class App extends React.Component {
+/* -------------------------------------------------------------------------- */
+
+export default function App(props) {
   
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: 'App'
-    }
-  }
+  // 1. tuple data type [state, setState]
+  // 2. intial value (lazy intial value)
+  const [appName, setAppName] = React.useState(props.appName);
 
-  render() {
-    return (
-      <div className="App">
-        {/* 상태를 가지는 컴포넌트 */}
-        <h1>{this.state.name}</h1>
-        <List />
-      </div>
-    );
-  }
+  // 1. side effect function (subscription)
+  // 2. dependency array (condition)
+  // 3. cleanup (unsubscription)
+  React.useEffect(() => {
+    console.log(`changed app name: ${appName}`);
+
+    // 사이드 이펙트 설정
+    // 타임 컨트롤 (React에 의해 관리되는 것이 아님 : 부수 효과)
+    const clearId = setInterval(() => setAppName((prevState) => prevState + `😃`), 3000);
+
+    return /* cleanup */ () => {
+      clearInterval(clearId);
+    }
+
+  }, [appName]);
+
+  return (
+    <div className="App">
+      <h1>{appName}</h1>
+      <List />
+    </div>
+  );
 }
 
-export default App;
+App.defaultProps = {
+  appName: 'V App',
+};
+
+App.propTypes = {
+  appName: string,
+};

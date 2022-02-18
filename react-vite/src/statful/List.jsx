@@ -11,7 +11,7 @@ export const List = () => {
 
   // dataList 상태를 관리하는 사이드 이펙트 처리 함수
   useEffect(() => {
-    console.log('dataList 관리')
+    // console.log('dataList 관리')
   }, [dataList]);
 
   /* -------------------------------------------------------------------------- */
@@ -21,7 +21,7 @@ export const List = () => {
   
   useEffect(
     () => {
-      console.log('count 관리')
+      // console.log('count 관리')
     }, 
     [count]
   );
@@ -45,7 +45,7 @@ export const List = () => {
   // 네트워크 통신 (비동기 요청) => 응답 -> UI 렌더링
   // Fetch API
   useEffect(() => {
-    fetch('/api/dataLis.json')
+    fetch('/api/taskList.json')
       .then(response => response.json())
       .then(json => setDataList(json))
       .catch(({message}) => setError({ message }))
