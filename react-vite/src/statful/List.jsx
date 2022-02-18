@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Item } from '../stateless/Item';
 
 // useState API
@@ -45,10 +45,19 @@ export const List = () => {
   // 네트워크 통신 (비동기 요청) => 응답 -> UI 렌더링
   // Fetch API
   useEffect(() => {
-    fetch('/api/taskList.json')
-      .then(response => response.json())
-      .then(json => setDataList(json))
-      .catch(({message}) => setError({ message }))
+
+    async function fetchData() {
+      try {
+        const response = await fetch('/api/taskList.json');
+        const json = await response.json();
+        setDataList(json);
+      } catch (error) {
+        setError({ message: error.message })
+      }
+    }
+
+    fetchData();
+    
   }, []);
 
   if (error) {
