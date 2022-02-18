@@ -18,5 +18,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', 'jsx-a11y', 'react-hooks'],
-  rules: {},
+  rules: {
+    'react/react-in-jsx-scope': 'off'
+  },
 };
