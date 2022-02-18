@@ -27,25 +27,33 @@ module.exports = {
     { configType /* DEVELOPMENT or PRODUCTION */ }
   ) => {
 
+    const oneOfRule = config.module.rules.find((rule) => rule.oneOf);
+    const babelRule = oneOfRule.oneOf.find((rule) =>
+      rule.loader?.includes('babel-loader')
+    );
+
+    babelRule.options.presets.push('@emotion/babel-preset-css-prop');
+    babelRule.options.plugins.unshift('@emotion');
+
     config.resolve.alias = {
       ...config.resolve.alias,
       '@': setRootPath('src'),
       '@emotion/core': setRootPath('node_modules/@emotion/react'),
-      // '@emotion/styled': setRootPath('node_modules/@emotion/styled'),
+      '@emotion/styled': setRootPath('node_modules/@emotion/styled'),
     };
 
     return config;
   },
 
-  babel: async (options) => {
+  // babel: async (options) => {
   
-    const config = {
-      ...options,
-      presets: [require.resolve("@emotion/babel-preset-css-prop"), ...options.presets],
-      plugins: [require.resolve("@emotion/babel-plugin"), ...options.plugins],
-    }
+  //   const config = {
+  //     ...options,
+  //     presets: [require.resolve("@emotion/babel-preset-css-prop"), ...options.presets],
+  //     plugins: [require.resolve("@emotion/babel-plugin"), ...options.plugins],
+  //   }
 
-    return config;
-  },
+  //   return config;
+  // },
   
 };

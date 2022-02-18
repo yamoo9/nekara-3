@@ -1,33 +1,30 @@
-import { useState, createElement as h } from 'react';
-import logo from './logo.svg';
+
+// import logo from './logo.svg';
+import React from 'react'
+
 import './App.css';
+import { List } from './statful/List'
 
-const Div = (props) => <div {...props} />
-
-function App() {
-  // React Hooks
-  // 상태 관리 훅
-  // [useState], useReducer
-
-  // App 컴포넌트가 관리하는 상태(state)
-  const [nums] = useState(Array(100).fill(null).map((n, i) => ({
-    id: `fdkjfs-${i}`,
-    content: i * i
-  })));
+// 상태가 없는 컴포넌트
+// 상태를 가지는 컴포넌트로 변경
+class App extends React.Component {
   
-  return (
-    <div className="App">
-      {
-        // App 컴포넌트의 children [VDOMNode, null, string]
-        // React 컴포넌트의 자식 노드로 객체가 설정될 수 있을까?
-        nums.map(({ id, content }, idx) => {
-          return (
-            <Div key={id} children={content} />
-          )
-        })
-      }
-    </div>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: 'App'
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        {/* 상태를 가지는 컴포넌트 */}
+        <h1>{this.state.name}</h1>
+        <List />
+      </div>
+    );
+  }
 }
 
 export default App;
