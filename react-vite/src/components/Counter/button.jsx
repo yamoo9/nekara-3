@@ -1,4 +1,4 @@
-export function CountButton({ children, ...restProps }) {
+export function Button({ children, ...restProps }) {
   return (
     <button type="button" {...restProps}>
       {children}
