@@ -59,7 +59,8 @@ export const GlobalStyle = () => (
 
       :focus {
         outline: 3px solid ${theme.colors.focus[50]};
-        border-radius: 6px;
+        outline-offset: 4px;
+        border-radius: 3px;
       }
     `}
   />

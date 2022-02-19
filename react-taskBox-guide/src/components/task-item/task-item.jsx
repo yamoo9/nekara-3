@@ -1,20 +1,27 @@
 import { css } from '@emotion/react';
 import { bool, elementType, oneOfType, shape, string } from 'prop-types';
-import { Avatar, Checker, PinButton } from '@/components';
+import { Avatar, AvatarType, Checker, PinButton } from '@/components';
 import { Headline, Description } from './task-item.styled';
 import { theme } from '@/styles/theme';
-import { AvatarType } from '../avatar/avatar';
 
 /* -------------------------------------------------------------------------- */
 
-export const TaskItemType = shape({
-  id: string,
-  headline: string,
-  description: string,
-  pinned: bool,
+export const TaskItemType = {
+  /** 렌더링 할 요소 타입 */
+  as: oneOfType([string, elementType]),
+  /** 로딩 상태 */
+  loading: bool,
+  /** 아카이브(보관) 상태 설정 */
   archived: bool,
-  auther: AvatarType,
-});
+  /** 핀(고정) 상태 설정 */
+  pinned: bool,
+  /** 아이템 헤드라인(제목) */
+  headline: string.isRequired,
+  /** 아이템 디스크립션(설명) */
+  description: string.isRequired,
+  /** 아바타 정보(소스, 이름) */
+  avatar: AvatarType.isRequired,
+};
 
 /* -------------------------------------------------------------------------- */
 
@@ -94,19 +101,4 @@ TaskItem.defaultProps = {
   pinned: false,
 };
 
-TaskItem.propTypes = {
-  /** 렌더링 할 요소 타입 */
-  as: oneOfType([string, elementType]),
-  /** 로딩 상태 */
-  loading: bool,
-  /** 아카이브(보관) 상태 설정 */
-  archived: bool,
-  /** 핀(고정) 상태 설정 */
-  pinned: bool,
-  /** 아이템 헤드라인(제목) */
-  headline: string.isRequired,
-  /** 아이템 디스크립션(설명) */
-  description: string.isRequired,
-  /** 아바타 정보(소스, 이름) */
-  avatar: AvatarType.isRequired,
-};
+TaskItem.propTypes = TaskItemType;

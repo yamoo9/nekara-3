@@ -88,5 +88,5 @@ VisibleArchived.args = {
     }
     return item;
   }),
-  visibleArchived: true
+  visibleArchived: true,
 };

@@ -10,6 +10,15 @@ export default {
       </div>
     ),
   ],
+  parameters: {
+    backgrounds: {
+      default: 'gray',
+      values: [
+        { name: 'gray', value: '#eee' },
+        { name: 'darkgray', value: '#424242' },
+      ],
+    },
+  },
   args: {
     ...TaskItem.defaultProps,
     headline: 'React Hooks 학습',

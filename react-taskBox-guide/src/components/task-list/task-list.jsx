@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   arrayOf,
   bool,
@@ -8,23 +9,40 @@ import {
   string,
 } from 'prop-types';
 import { css } from '@emotion/react';
-import { TaskItem, TaskItemType } from '../task-item/task-item';
+import { TaskItem, TaskItemType } from '@/components';
 
 /* -------------------------------------------------------------------------- */
 
-export function TaskList({ as: Component, loading, items, visibleArchived, ...restProps }) {
- 
+export const TaskListType = {
+  /** 렌더링 할 요소 타입 */
+  as: oneOfType([string, elementType]),
+  /** 로딩 상태 */
+  loading: bool,
+  /** 렌더링 할 아이템 리스트(배열) */
+  items: arrayOf(oneOfType([oneOf([null]), TaskItemType])),
+  /** 아카이브 된 아이템 표시 설정 */
+  visibleArchived: bool,
+};
+
+/* -------------------------------------------------------------------------- */
+
+export function TaskList({
+  as: Component,
+  loading,
+  items,
+  visibleArchived,
+  ...restProps
+}) {
   if (!loading && items[0] !== null) {
     items = [
       ...items.filter((item) => item.pinned),
       ...items.filter((item) => !item.pinned),
     ];
-    
+
     if (!visibleArchived) {
-      items = items.filter(item => !item.archived);
+      items = items.filter((item) => !item.archived);
     }
   }
-
 
   return (
     <Component
@@ -60,16 +78,7 @@ TaskList.defaultProps = {
   as: 'div',
   loading: true,
   items: [null, null, null, null],
-  visibleArchived: false
+  visibleArchived: false,
 };
 
-TaskList.propTypes = {
-  /** 렌더링 할 요소 타입 */
-  as: oneOfType([string, elementType]),
-  /** 로딩 상태 */
-  loading: bool,
-  /** 렌더링 할 아이템 리스트(배열) */
-  items: arrayOf(oneOfType([oneOf([null]), TaskItemType])),
-  /** 아카이브 된 아이템 표시 설정 */
-  visibleArchived: bool,
-};
+TaskList.propTypes = TaskListType;

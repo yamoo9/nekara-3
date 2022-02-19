@@ -13,10 +13,22 @@ import { theme } from '@/styles/theme';
 
 /* -------------------------------------------------------------------------- */
 
-export const AvatarType = shape({
-  src: string,
+export const AvatarType = {
+  /** 렌더링 할 요소 타입 */
+  as: oneOfType([string, elementType]),
+  /** 로딩 상태 */
+  loading: bool,
+  /** 아바타 이미지 경로 */
+  src: string.isRequired,
+  /** 아바타 이미지 대체 텍스트 (name 값이 없을 경우, 아바타 이름 입력 필요) */
+  alt: string,
+  /** 아바타 이름 */
   name: string,
-});
+  /** 아바타 크기 */
+  size: number,
+};
+
+/* -------------------------------------------------------------------------- */
 
 export function Avatar({
   as: Component,
@@ -64,17 +76,4 @@ Avatar.defaultProps = {
   alt: '',
 };
 
-Avatar.propTypes = {
-  /** 렌더링 할 요소 타입 */
-  as: oneOfType([string, elementType]),
-  /** 로딩 상태 */
-  loading: bool,
-  /** 아바타 이미지 경로 */
-  src: string.isRequired,
-  /** 아바타 이미지 대체 텍스트 (name 값이 없을 경우, 아바타 이름 입력 필요) */
-  alt: string,
-  /** 아바타 이름 */
-  name: string,
-  /** 아바타 크기 */
-  size: number,
-};
+Avatar.propTypes = AvatarType;

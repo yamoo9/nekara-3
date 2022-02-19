@@ -1,7 +1,9 @@
-import { css } from '@emotion/react'
+import { css } from '@emotion/react';
 import { string, number, oneOf, oneOfType } from 'prop-types';
 import sprites from '@/assets/sprites/symbol/sprites.svg';
 import imageSprites from '@/assets/sprites/view/sprites.svg';
+
+/* -------------------------------------------------------------------------- */
 
 export const iconTypes = [
   'checker-loading',
@@ -15,6 +17,19 @@ export const iconTypes = [
   'toggleButton-closed',
   'toggleButton-openned',
 ];
+
+export const SVGIconType = {
+  /** 아이콘 ID */
+  id: oneOf(iconTypes).isRequired,
+  /** 아이콘 레이블 (의미를 가질 경우 설정) */
+  label: string.isRequired,
+  /** 아이콘 너비, 높이 일괄 설정 */
+  size: oneOfType([number, string]),
+  /** 아이콘 너비 설정 */
+  width: oneOfType([number, string]),
+  /** 아이콘 높이 설정 */
+  height: oneOfType([number, string]),
+};
 
 /* -------------------------------------------------------------------------- */
 
@@ -34,18 +49,7 @@ export function SVGIcon({ id, label, size, width, height, ...restProps }) {
 }
 
 SVGIcon.defaultProps = {
-  size: 24
-}
-
-SVGIcon.propTypes = {
-  /** 아이콘 ID */
-  id: oneOf(iconTypes).isRequired,
-  /** 아이콘 레이블 (의미를 가질 경우 설정) */
-  label: string.isRequired,
-  /** 아이콘 너비, 높이 일괄 설정 */
-  size: oneOfType([number, string]),
-  /** 아이콘 너비 설정 */
-  width: oneOfType([number, string]),
-  /** 아이콘 높이 설정 */
-  height: oneOfType([number, string]),
+  size: 24,
 };
+
+SVGIcon.propTypes = SVGIconType;

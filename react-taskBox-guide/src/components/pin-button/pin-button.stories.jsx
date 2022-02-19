@@ -24,10 +24,12 @@ export const Loading = Template.bind({});
 
 export const Deactive = Template.bind({});
 Deactive.args = {
+  loading: false,
   type: 'deactive',
 };
 
 export const Active = Template.bind({});
 Active.args = {
+  loading: false,
   type: 'active',
 };
