@@ -22,7 +22,7 @@ const Template = (args) => <Header {...args} />;
 
 export const HeaderClosed = Template.bind({});
 
-export const HeaderOpenned = Template.bind({});
-HeaderOpenned.args = {
+export const HeaderOpened = Template.bind({});
+HeaderOpened.args = {
   open: true,
 };

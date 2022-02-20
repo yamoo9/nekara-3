@@ -1,3 +1,4 @@
+import { TaskBoxProvider } from '@/contexts';
 import { TaskItem } from './task-item';
 
 export default {
@@ -5,9 +6,11 @@ export default {
   component: TaskItem,
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: 320 }}>
-        <Story />
-      </div>
+      <TaskBoxProvider value={{}}>
+        <div style={{ maxWidth: 320 }}>
+          <Story />
+        </div>
+      </TaskBoxProvider>
     ),
   ],
   parameters: {
@@ -21,6 +24,7 @@ export default {
   },
   args: {
     ...TaskItem.defaultProps,
+    id: 'task-item-diwd',
     headline: 'React Hooks 학습',
     description: 'React 함수 컴포넌트 훅 정리',
     avatar: {

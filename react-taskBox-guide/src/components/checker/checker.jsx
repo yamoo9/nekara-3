@@ -12,12 +12,13 @@ export const Checker = ({
   ...restProps
 }) => {
   return (
-    <Wrapper $size={size} checked={checked} $loading={loading} {...restProps}>
+    <Wrapper checked={checked} $loading={loading} $size={size} {...restProps}>
       <input
         type="checkbox"
         checked={checked}
         onChange={onChange}
         aria-label={label}
+        title={label}
       />
     </Wrapper>
   );
@@ -27,7 +28,6 @@ Checker.defaultProps = {
   checked: false,
   loading: false,
   size: 16,
-  onChange: () => {},
 };
 
 Checker.propTypes = {

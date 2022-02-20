@@ -25,4 +25,21 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  // 참고: https://bit.ly/3JGsh8W
+  options: {
+    storySort: {
+      order: [
+        'Example', 
+        'TaskBox', 
+          [
+            'Atomics', 
+            'Molecules', 
+            'Organisms', 
+            'Templates', 
+            'Pages'
+          ],
+        '*'
+      ],
+    },
+  }
 };

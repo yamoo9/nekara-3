@@ -1,27 +1,31 @@
 import { css } from '@emotion/react';
-import { bool, number, oneOfType, string } from 'prop-types';
+import { bool, number, func, string, oneOfType, exact } from 'prop-types';
 import { SVGIcon } from '../svgicon/svgicon';
 
 /* -------------------------------------------------------------------------- */
 
-export function ToggleButton({ open, size, ...restProps }) {
-  let buttonLabel = open ? '메뉴 닫기' : '메뉴 열기';
+export function ToggleButton({ open, size, labels, onToggle, ...restProps }) {
+  
+  let buttonLabel = open ? labels.opened : labels.closed;
+  let buttonSize = typeof size === 'number' ? `${size}px` : size;
+
   return (
     <button
       type="button"
-      {...restProps}
       title={buttonLabel}
       css={css`
         cursor: pointer;
-        width: 24px;
-        height: 24px;
+        width: ${buttonSize};
+        height: ${buttonSize};
         border: 0;
         padding: 0;
         background: none;
       `}
+      onClick={onToggle}
+      {...restProps}
     >
       <SVGIcon
-        id={`toggleButton-${open ? 'openned' : 'closed'}`}
+        id={`toggleButton-${open ? 'opened' : 'closed'}`}
         label={buttonLabel}
         size={size}
       />
@@ -32,6 +36,10 @@ export function ToggleButton({ open, size, ...restProps }) {
 ToggleButton.defaultProps = {
   open: false,
   size: 24,
+  labels: {
+    opened: '메뉴 닫기',
+    closed: '메뉴 열기',
+  }
 };
 
 ToggleButton.propTypes = {
@@ -39,4 +47,11 @@ ToggleButton.propTypes = {
   open: bool,
   /** 버튼 크기 */
   size: oneOfType([number, string]),
+  /** 버튼 레이블 */
+  labels: exact({
+    opened: string,
+    closed: string,
+  }),
+  /** 토글 이벤트 핸들러 */
+  onToggle: func,
 };

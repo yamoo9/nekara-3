@@ -1,4 +1,4 @@
-import { number, bool, oneOf } from 'prop-types';
+import { number, bool, func, oneOf } from 'prop-types';
 import { css } from '@emotion/react';
 import { SVGIcon } from '@/components';
 
@@ -7,9 +7,9 @@ import { SVGIcon } from '@/components';
 const getLabel = (type) => {
   switch (type) {
     case 'active':
-      return '핀(고정) 활성';
-    case 'deactive':
       return '핀(고정) 비활성';
+    case 'deactive':
+      return '핀(고정) 활성';
     default:
       return '로딩 중...';
   }
@@ -17,7 +17,7 @@ const getLabel = (type) => {
 
 /* -------------------------------------------------------------------------- */
 
-export function PinButton({ loading, type, size, ...restProps }) {
+export function PinButton({ loading, type, size, onPin, ...restProps }) {
   let typeLabel = getLabel(type);
 
   return (
@@ -32,6 +32,7 @@ export function PinButton({ loading, type, size, ...restProps }) {
         padding: 0;
       `}
       title={typeLabel}
+      onClick={onPin}
       {...restProps}
     >
       <SVGIcon id={`pin-${loading ? 'loading' : type}`} label={typeLabel} />
@@ -52,4 +53,6 @@ PinButton.propTypes = {
   type: oneOf(['loading', 'deactive', 'active']),
   /** 버튼 크기 */
   size: number,
+  /** 핀 이벤트 핸들러 */
+  onPin: func,
 };

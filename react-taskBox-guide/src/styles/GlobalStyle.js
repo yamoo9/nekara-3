@@ -66,6 +66,12 @@ export const GlobalStyle = () => (
         outline-offset: 4px;
         border-radius: 3px;
       }
+
+      :focus:not(:focus-visible) {
+        outline: none;
+        outline-offset: initial;
+        border-radius: initial;
+      }
     `}
   />
 );

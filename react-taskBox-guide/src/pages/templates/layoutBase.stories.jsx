@@ -10,7 +10,7 @@ export default {
   },
 };
 
-const Template = (args) => <LayoutBase {...args} />;
+const Template = (args) => <LayoutBase css={css`min-height: 100vh;`} {...args} />;
 
 export const Default = Template.bind({});
 

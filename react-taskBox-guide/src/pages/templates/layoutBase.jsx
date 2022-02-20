@@ -1,14 +1,14 @@
+import { exact } from 'prop-types';
 import { css } from '@emotion/react';
 import { theme } from '@/styles/theme';
 import { Header } from '@/components';
 
 /* -------------------------------------------------------------------------- */
 
-export const LayoutBase = ({ children, ...restProps }) => (
+export const LayoutBase = ({ headerProps, children, ...restProps }) => (
   <div
     css={css`
       background: ${theme.colors.Primary[50]};
-      min-height: 100vh;
     `}
     {...restProps}
   >
@@ -20,7 +20,12 @@ export const LayoutBase = ({ children, ...restProps }) => (
         left: 0;
         width: 100%;
       `}
+      {...headerProps}
     />
     {children}
   </div>
 );
+
+LayoutBase.propTypes = {
+  headerProps: exact(Header.propTypes),
+};

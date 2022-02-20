@@ -1,4 +1,5 @@
 import taskList from '../../../public/api/taskList.json';
+import { TaskBoxProvider } from '@/contexts';
 import { TaskList } from './task-list';
 
 export default {
@@ -6,9 +7,11 @@ export default {
   component: TaskList,
   decorators: [
     (Story) => (
-      <div style={{ maxWidth: 320 }}>
-        <Story />
-      </div>
+      <TaskBoxProvider value={{}}>
+        <div style={{ maxWidth: 320 }}>
+          <Story />
+        </div>
+      </TaskBoxProvider>
     ),
   ],
   parameters: {

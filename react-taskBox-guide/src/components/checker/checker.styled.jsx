@@ -27,13 +27,15 @@ export const Wrapper = styled.span`
   }
 
   & input {
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
     opacity: 0;
   }
 
   &::before {
     content: '';
     position: absolute;
-    z-index: 10;
     top: 0;
     left: 0;
     width: 100%;

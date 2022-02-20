@@ -58,9 +58,9 @@ ToggleButton.args = {
   label: '메뉴 열림',
 };
 
-export const ToggleButtonOpenned = Template.bind({});
-ToggleButtonOpenned.args = {
-  id: 'toggleButton-openned',
+export const ToggleButtonOpened = Template.bind({});
+ToggleButtonOpened.args = {
+  id: 'toggleButton-opened',
   label: '메뉴 닫힘',
 };
 

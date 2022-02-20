@@ -3,11 +3,13 @@ import { bool, elementType, oneOfType, shape, string } from 'prop-types';
 import { Avatar, Checker, PinButton } from '@/components';
 import { Headline, Description } from './task-item.styled';
 import { theme } from '@/styles/theme';
+import { useTaskBox } from '@/contexts';
 
 /* -------------------------------------------------------------------------- */
 
 export function TaskItem({
   as: Component,
+  id,
   loading,
   archived,
   pinned,
@@ -16,6 +18,9 @@ export function TaskItem({
   avatar,
   ...restProps
 }) {
+
+  const { updatePin, updateArchive } = useTaskBox();
+
   return (
     <Component
       css={css`
@@ -56,6 +61,7 @@ export function TaskItem({
         `}
         loading={loading}
         type={pinned ? 'active' : !pinned ? 'deactive' : 'loading'}
+        onPin={() => updatePin?.(id)}
       />
       <Checker
         css={css`
@@ -65,11 +71,12 @@ export function TaskItem({
         checked={archived}
         label={
           archived
-            ? '아카이브(보관) 활성'
-            : !archived
             ? '아카이브(보관) 비활성'
+            : !archived
+            ? '아카이브(보관) 활성'
             : '로딩 중...'
         }
+        onChange={() => updateArchive?.(id)}
       />
     </Component>
   );
@@ -85,6 +92,8 @@ TaskItem.defaultProps = {
 TaskItem.propTypes = {
   /** 렌더링 할 요소 타입 */
   as: oneOfType([string, elementType]),
+  /** 아이템 ID */
+  id: string,
   /** 로딩 상태 */
   loading: bool,
   /** 아카이브(보관) 상태 설정 */

@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  arrayOf,
-  bool,
-  elementType,
-  oneOfType,
-  shape,
-  string,
-} from 'prop-types';
+import { arrayOf, bool, elementType, oneOfType, shape, string } from 'prop-types';
 import { css } from '@emotion/react';
 import { TaskItem, SVGIcon } from '@/components';
 import { errorStyle, loadingStyle } from './task-list.styled';
@@ -55,6 +48,7 @@ export function TaskList({
         items.map((item, index) => (
           <TaskItem
             key={item?.id ?? index}
+            id={item?.id}
             loading={loading}
             pinned={item?.pinned}
             archived={item?.archived}

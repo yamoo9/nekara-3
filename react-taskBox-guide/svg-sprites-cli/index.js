@@ -6,7 +6,7 @@ const OUT_DIR = argv.o || argv.outdir || 'build';
 const SVG_FILENAME = argv.f || argv.filename || 'sprites';
 
 exec(
-  `npx svg-sprite --svg-xmldecl=false --svg-doctype=false -v --view-prefix='' --vs='${SVG_FILENAME}' --view-bust=false --vx=true -s --symbol-prefix='' --symbol-sprite='${SVG_FILENAME}' --symbol-bust=false --symbol-example=true --dest=${OUT_DIR} '${SVG_DIR}/**/*.svg'`, 
+  `npx svg-sprite --svg-xmldecl=false --svg-doctype=false -v --view-prefix='' --vs='${SVG_FILENAME}' --view-bust=false --vx=false -s --symbol-prefix='' --symbol-sprite='${SVG_FILENAME}' --symbol-bust=false --symbol-example=false --dest=${OUT_DIR} '${SVG_DIR}/**/*.svg'`, 
   errorCallback
 );
 

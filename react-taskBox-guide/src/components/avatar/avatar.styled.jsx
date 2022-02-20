@@ -19,6 +19,11 @@ export const Face = styled.img`
   vertical-align: middle;
   border-radius: 50%;
   border: 1px solid ${colors.Primary[100]};
+  transition: border-color 0.3s ease-in-out;
+
+  &:hover {
+    border-color: ${colors.Primary[300]};
+  }
 `;
 
 export const Name = styled.span`

@@ -15,7 +15,7 @@ export const iconTypes = [
   'logo-dark',
   'logo-light',
   'toggleButton-closed',
-  'toggleButton-openned',
+  'toggleButton-opened',
   'taskList-empty',
   'taskList-error',
 ];
