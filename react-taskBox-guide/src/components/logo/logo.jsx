@@ -4,21 +4,6 @@ import { SVGIcon } from '@/components';
 
 /* -------------------------------------------------------------------------- */
 
-export const LogoType = {
-  /** 렌더링 할 요소 타입 */
-  as: oneOfType([string, elementType]),
-  /** 로고 레이블 */
-  label: string,
-  /** 로고 크기 */
-  size: oneOfType([number, string]),
-  /** 다크 모드 */
-  dark: bool,
-  /** 홈링크 모드 */
-  homelink: bool,
-};
-
-/* -------------------------------------------------------------------------- */
-
 export function Logo({
   as: Component,
   label,
@@ -54,4 +39,15 @@ Logo.defaultProps = {
   homelink: false,
 };
 
-Logo.propTypes = LogoType;
+Logo.propTypes = {
+  /** 렌더링 할 요소 타입 */
+  as: oneOfType([string, elementType]),
+  /** 로고 레이블 */
+  label: string,
+  /** 로고 크기 */
+  size: oneOfType([number, string]),
+  /** 다크 모드 */
+  dark: bool,
+  /** 홈링크 모드 */
+  homelink: bool,
+};

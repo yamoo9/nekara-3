@@ -4,15 +4,6 @@ import { SVGIcon } from '../svgicon/svgicon';
 
 /* -------------------------------------------------------------------------- */
 
-export const ToggleButtonType = {
-  /** 메뉴 열림/닫힘 상태 */
-  open: bool,
-  /** 버튼 크기 */
-  size: oneOfType([number, string]),
-};
-
-/* -------------------------------------------------------------------------- */
-
 export function ToggleButton({ open, size, ...restProps }) {
   let buttonLabel = open ? '메뉴 닫기' : '메뉴 열기';
   return (
@@ -43,4 +34,9 @@ ToggleButton.defaultProps = {
   size: 24,
 };
 
-ToggleButton.propTypes = ToggleButtonType;
+ToggleButton.propTypes = {
+  /** 메뉴 열림/닫힘 상태 */
+  open: bool,
+  /** 버튼 크기 */
+  size: oneOfType([number, string]),
+};

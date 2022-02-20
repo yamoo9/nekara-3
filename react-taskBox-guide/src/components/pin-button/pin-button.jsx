@@ -4,17 +4,6 @@ import { SVGIcon } from '@/components';
 
 /* -------------------------------------------------------------------------- */
 
-export const PinButtonType = {
-  /** 로딩 상태 */
-  loading: bool,
-  /** 버튼 타입 */
-  type: oneOf(['loading', 'deactive', 'active']),
-  /** 버튼 크기 */
-  size: number,
-};
-
-/* -------------------------------------------------------------------------- */
-
 const getLabel = (type) => {
   switch (type) {
     case 'active':
@@ -56,4 +45,11 @@ PinButton.defaultProps = {
   size: 24,
 };
 
-PinButton.propTypes = PinButtonType;
+PinButton.propTypes = {
+  /** 로딩 상태 */
+  loading: bool,
+  /** 버튼 타입 */
+  type: oneOf(['loading', 'deactive', 'active']),
+  /** 버튼 크기 */
+  size: number,
+};

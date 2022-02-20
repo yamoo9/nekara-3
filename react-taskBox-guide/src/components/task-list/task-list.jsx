@@ -9,20 +9,7 @@ import {
   string,
 } from 'prop-types';
 import { css } from '@emotion/react';
-import { TaskItem, TaskItemType } from '@/components';
-
-/* -------------------------------------------------------------------------- */
-
-export const TaskListType = {
-  /** 렌더링 할 요소 타입 */
-  as: oneOfType([string, elementType]),
-  /** 로딩 상태 */
-  loading: bool,
-  /** 렌더링 할 아이템 리스트(배열) */
-  items: arrayOf(oneOfType([oneOf([null]), TaskItemType])),
-  /** 아카이브 된 아이템 표시 설정 */
-  visibleArchived: bool,
-};
+import { TaskItem } from '@/components';
 
 /* -------------------------------------------------------------------------- */
 
@@ -81,4 +68,13 @@ TaskList.defaultProps = {
   visibleArchived: false,
 };
 
-TaskList.propTypes = TaskListType;
+TaskList.propTypes = {
+  /** 렌더링 할 요소 타입 */
+  as: oneOfType([string, elementType]),
+  /** 로딩 상태 */
+  loading: bool,
+  /** 렌더링 할 아이템 리스트(배열) */
+  items: arrayOf(oneOfType([oneOf([null]), TaskItem.propTypes])),
+  /** 아카이브 된 아이템 표시 설정 */
+  visibleArchived: bool,
+};
