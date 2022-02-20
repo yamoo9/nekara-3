@@ -1,0 +1,61 @@
+.retryButton {
+  cursor: pointer;
+  border: 0;
+  border-radius: 3px;
+  padding: 0.85rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  background: var(--color-gray-100);
+  color: var(--color-gray-800);
+  transition: all 0.15s ease-out;
+  box-shadow: 0 0 1px rgba(0 0 0 / 40%);
+}
+
+.retryButton.fixed {
+  position: fixed;
+  z-index: 100;
+  bottom: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.retryButton.hasShadow {
+  box-shadow: 
+    0 2px 4px rgba(0 0 0 / 20%),
+    0 4px 10px rgba(0 0 0 / 10%);
+}
+
+.retryButton.hasShadow:hover {
+  box-shadow: 
+    0 0 2px rgba(0 0 0 / 10%),
+    0 8px 12px rgba(0 0 0 / 15%);
+}
+
+.retryButton:hover {
+  background: var(--color-white);
+  color: var(--color-primary-700);
+}
+
+.retryButton.fixed:hover {
+  transform: translate(-50%, -5%);
+}
+
+.retryButton:active {
+  transform: translate(-50%, -5%) scale(0.97);
+}
+
+.retryButton:focus {
+  outline: 5px solid var(--color-primary-500);
+}
+.retryButton:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.retryButton:disabled {
+  cursor: not-allowed;
+  background: var(--color-gray-900);
+  color: var(--color-gray-600);
+}
+.retryButton.fixed:disabled {
+  transform: translateX(-50%);
+}
