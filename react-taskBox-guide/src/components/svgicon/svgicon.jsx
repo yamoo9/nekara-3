@@ -16,6 +16,8 @@ export const iconTypes = [
   'logo-light',
   'toggleButton-closed',
   'toggleButton-openned',
+  'taskList-empty',
+  'taskList-error',
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -36,14 +38,16 @@ export function SVGIcon({ id, label, size, width, height, ...restProps }) {
 }
 
 SVGIcon.defaultProps = {
-  size: 24,
+  width: 24,
+  height: 24,
+  label: ''
 };
 
 SVGIcon.propTypes = {
   /** 아이콘 ID */
   id: oneOf(iconTypes).isRequired,
   /** 아이콘 레이블 (의미를 가질 경우 설정) */
-  label: string.isRequired,
+  label: string,
   /** 아이콘 너비, 높이 일괄 설정 */
   size: oneOfType([number, string]),
   /** 아이콘 너비 설정 */

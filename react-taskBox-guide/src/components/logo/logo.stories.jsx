@@ -1,4 +1,5 @@
 import { Logo } from './logo';
+import { rangeControl } from '@/utils';
 
 export default {
   title: 'TaskBox / Atomics / Logo',
@@ -7,25 +8,22 @@ export default {
     ...Logo.defaultProps,
   },
   argTypes: {
-    size: {
-      control: {
-        type: 'range',
-        min: 14,
-        step: 2,
-        max: 100
-      }
-    }
-  }
-}
+    size: rangeControl({
+      min: 14,
+      step: 2,
+      max: 100,
+    }),
+  },
+};
 
-const Template = args => <Logo {...args} />
+const Template = (args) => <Logo {...args} />;
 
 export const LogoLight = Template.bind({});
 
 export const LogoHomeLink = Template.bind({});
 LogoHomeLink.args = {
-  homelink: true
-}
+  homelink: true,
+};
 
 export const LogoDark = Template.bind({});
 LogoDark.args = {
@@ -34,11 +32,9 @@ LogoDark.args = {
 LogoDark.parameters = {
   backgrounds: {
     default: 'dark',
-    values: [
-      { name: 'dark', value: '#111' }
-    ]
-  }
-}
+    values: [{ name: 'dark', value: '#111' }],
+  },
+};
 
 export const LogoDarkHomeLink = Template.bind({});
 LogoDarkHomeLink.args = {
@@ -47,4 +43,4 @@ LogoDarkHomeLink.args = {
 };
 LogoDarkHomeLink.parameters = {
   ...LogoDark.parameters,
-}
+};

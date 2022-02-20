@@ -16,53 +16,63 @@ This is an all-in-one inline version of the CSS necessary to use the SVG sprite.
 -->
 
 <style type="text/css">
-.svg-checker-checked {
-	background: url("sprites.svg") 66.66666666666667% 0 no-repeat;
+.checker-checked {
+	background: url("sprites.svg") 28.571428571428573% 62.6865671641791% no-repeat;
 	width: 24px;
 	height: 24px;
 }
-.svg-checker-loading {
-	background: url("sprites.svg") 0 35.714285714285715% no-repeat;
+.checker-loading {
+	background: url("sprites.svg") 57.142857142857146% 62.6865671641791% no-repeat;
 	width: 24px;
 	height: 24px;
 }
-.svg-checker-unchecked {
-	background: url("sprites.svg") 33.333333333333336% 35.714285714285715% no-repeat;
-	width: 24px;
-	height: 24px;
-}
-.svg-logo-dark {
-	background: url("sprites.svg") 66.66666666666667% 34.24657534246575% no-repeat;
-	width: 24px;
-	height: 21px;
-}
-.svg-logo-light {
-	background: url("sprites.svg") 0 67.12328767123287% no-repeat;
-	width: 24px;
-	height: 21px;
-}
-.svg-pin-active {
+.checker-unchecked {
 	background: url("sprites.svg") 100% 0 no-repeat;
 	width: 24px;
 	height: 24px;
 }
-.svg-pin-deactive {
+.logo-dark {
 	background: url("sprites.svg") 100% 34.285714285714285% no-repeat;
 	width: 24px;
-	height: 24px;
+	height: 21px;
 }
-.svg-pin-loading {
+.logo-light {
+	background: url("sprites.svg") 100% 64.28571428571429% no-repeat;
+	width: 24px;
+	height: 21px;
+}
+.pin-active {
 	background: url("sprites.svg") 0 100% no-repeat;
 	width: 24px;
 	height: 24px;
 }
-.svg-toggleButton-closed {
+.pin-deactive {
+	background: url("sprites.svg") 28.571428571428573% 100% no-repeat;
+	width: 24px;
+	height: 24px;
+}
+.pin-loading {
+	background: url("sprites.svg") 57.142857142857146% 100% no-repeat;
+	width: 24px;
+	height: 24px;
+}
+.taskList-empty {
 	background: url("sprites.svg") 0 0 no-repeat;
+	width: 30px;
+	height: 42px;
+}
+.taskList-error {
+	background: url("sprites.svg") 38.46153846153846% 0 no-repeat;
+	width: 30px;
+	height: 42px;
+}
+.toggleButton-closed {
+	background: url("sprites.svg") 71.42857142857143% 0 no-repeat;
 	width: 24px;
 	height: 25px;
 }
-.svg-toggleButton-openned {
-	background: url("sprites.svg") 33.333333333333336% 0 no-repeat;
+.toggleButton-openned {
+	background: url("sprites.svg") 0 63.63636363636363% no-repeat;
 	width: 24px;
 	height: 25px;
 }
@@ -80,16 +90,18 @@ external stylesheet of course.
 -->
 
 <style type="text/css">
-	.svg-checker-checked-dims { width: 24px; height: 24px; }
-	.svg-checker-loading-dims { width: 24px; height: 24px; }
-	.svg-checker-unchecked-dims { width: 24px; height: 24px; }
-	.svg-logo-dark-dims { width: 24px; height: 21px; }
-	.svg-logo-light-dims { width: 24px; height: 21px; }
-	.svg-pin-active-dims { width: 24px; height: 24px; }
-	.svg-pin-deactive-dims { width: 24px; height: 24px; }
-	.svg-pin-loading-dims { width: 24px; height: 24px; }
-	.svg-toggleButton-closed-dims { width: 24px; height: 25px; }
-	.svg-toggleButton-openned-dims { width: 24px; height: 25px; }
+	.checker-checked-dims { width: 24px; height: 24px; }
+	.checker-loading-dims { width: 24px; height: 24px; }
+	.checker-unchecked-dims { width: 24px; height: 24px; }
+	.logo-dark-dims { width: 24px; height: 21px; }
+	.logo-light-dims { width: 24px; height: 21px; }
+	.pin-active-dims { width: 24px; height: 24px; }
+	.pin-deactive-dims { width: 24px; height: 24px; }
+	.pin-loading-dims { width: 24px; height: 24px; }
+	.taskList-empty-dims { width: 30px; height: 42px; }
+	.taskList-error-dims { width: 30px; height: 42px; }
+	.toggleButton-closed-dims { width: 24px; height: 25px; }
+	.toggleButton-openned-dims { width: 24px; height: 25px; }
 </style>
 
 <!--
@@ -124,7 +136,7 @@ appropriately sized elements.
 					<div class="icon-box">
 
 						<!-- checker-checked -->
-						<i class="svg-checker-checked">checker-checked</i>
+						<i class="checker-checked">checker-checked</i>
 
 					</div>
 					<h2>checker-checked</h2>
@@ -133,7 +145,7 @@ appropriately sized elements.
 					<div class="icon-box">
 
 						<!-- checker-loading -->
-						<i class="svg-checker-loading">checker-loading</i>
+						<i class="checker-loading">checker-loading</i>
 
 					</div>
 					<h2>checker-loading</h2>
@@ -142,7 +154,7 @@ appropriately sized elements.
 					<div class="icon-box">
 
 						<!-- checker-unchecked -->
-						<i class="svg-checker-unchecked">checker-unchecked</i>
+						<i class="checker-unchecked">checker-unchecked</i>
 
 					</div>
 					<h2>checker-unchecked</h2>
@@ -151,7 +163,7 @@ appropriately sized elements.
 					<div class="icon-box">
 
 						<!-- logo-dark -->
-						<i class="svg-logo-dark">logo-dark</i>
+						<i class="logo-dark">logo-dark</i>
 
 					</div>
 					<h2>logo-dark</h2>
@@ -160,7 +172,7 @@ appropriately sized elements.
 					<div class="icon-box">
 
 						<!-- logo-light -->
-						<i class="svg-logo-light">logo-light</i>
+						<i class="logo-light">logo-light</i>
 
 					</div>
 					<h2>logo-light</h2>
@@ -169,7 +181,7 @@ appropriately sized elements.
 					<div class="icon-box">
 
 						<!-- pin-active -->
-						<i class="svg-pin-active">pin-active</i>
+						<i class="pin-active">pin-active</i>
 
 					</div>
 					<h2>pin-active</h2>
@@ -178,7 +190,7 @@ appropriately sized elements.
 					<div class="icon-box">
 
 						<!-- pin-deactive -->
-						<i class="svg-pin-deactive">pin-deactive</i>
+						<i class="pin-deactive">pin-deactive</i>
 
 					</div>
 					<h2>pin-deactive</h2>
@@ -187,16 +199,34 @@ appropriately sized elements.
 					<div class="icon-box">
 
 						<!-- pin-loading -->
-						<i class="svg-pin-loading">pin-loading</i>
+						<i class="pin-loading">pin-loading</i>
 
 					</div>
 					<h2>pin-loading</h2>
+				</li>
+				<li title="taskList-empty">
+					<div class="icon-box">
+
+						<!-- taskList-empty -->
+						<i class="taskList-empty">taskList-empty</i>
+
+					</div>
+					<h2>taskList-empty</h2>
+				</li>
+				<li title="taskList-error">
+					<div class="icon-box">
+
+						<!-- taskList-error -->
+						<i class="taskList-error">taskList-error</i>
+
+					</div>
+					<h2>taskList-error</h2>
 				</li>
 				<li title="toggleButton-closed">
 					<div class="icon-box">
 
 						<!-- toggleButton-closed -->
-						<i class="svg-toggleButton-closed">toggleButton-closed</i>
+						<i class="toggleButton-closed">toggleButton-closed</i>
 
 					</div>
 					<h2>toggleButton-closed</h2>
@@ -205,7 +235,7 @@ appropriately sized elements.
 					<div class="icon-box">
 
 						<!-- toggleButton-openned -->
-						<i class="svg-toggleButton-openned">toggleButton-openned</i>
+						<i class="toggleButton-openned">toggleButton-openned</i>
 
 					</div>
 					<h2>toggleButton-openned</h2>
@@ -235,7 +265,7 @@ pre-defined in the external sprite.
 					<div class="icon-box">
 
 						<!-- checker-checked -->
-						<img src="sprites.svg#checker-checked" class="svg-checker-checked-dims" alt="checker-checked"/>
+						<img src="sprites.svg#checker-checked" class="checker-checked-dims" alt="checker-checked"/>
 
 					</div>
 					<h2>checker-checked</h2>
@@ -244,7 +274,7 @@ pre-defined in the external sprite.
 					<div class="icon-box">
 
 						<!-- checker-loading -->
-						<img src="sprites.svg#checker-loading" class="svg-checker-loading-dims" alt="checker-loading"/>
+						<img src="sprites.svg#checker-loading" class="checker-loading-dims" alt="checker-loading"/>
 
 					</div>
 					<h2>checker-loading</h2>
@@ -253,7 +283,7 @@ pre-defined in the external sprite.
 					<div class="icon-box">
 
 						<!-- checker-unchecked -->
-						<img src="sprites.svg#checker-unchecked" class="svg-checker-unchecked-dims" alt="checker-unchecked"/>
+						<img src="sprites.svg#checker-unchecked" class="checker-unchecked-dims" alt="checker-unchecked"/>
 
 					</div>
 					<h2>checker-unchecked</h2>
@@ -262,7 +292,7 @@ pre-defined in the external sprite.
 					<div class="icon-box">
 
 						<!-- logo-dark -->
-						<img src="sprites.svg#logo-dark" class="svg-logo-dark-dims" alt="logo-dark"/>
+						<img src="sprites.svg#logo-dark" class="logo-dark-dims" alt="logo-dark"/>
 
 					</div>
 					<h2>logo-dark</h2>
@@ -271,7 +301,7 @@ pre-defined in the external sprite.
 					<div class="icon-box">
 
 						<!-- logo-light -->
-						<img src="sprites.svg#logo-light" class="svg-logo-light-dims" alt="logo-light"/>
+						<img src="sprites.svg#logo-light" class="logo-light-dims" alt="logo-light"/>
 
 					</div>
 					<h2>logo-light</h2>
@@ -280,7 +310,7 @@ pre-defined in the external sprite.
 					<div class="icon-box">
 
 						<!-- pin-active -->
-						<img src="sprites.svg#pin-active" class="svg-pin-active-dims" alt="pin-active"/>
+						<img src="sprites.svg#pin-active" class="pin-active-dims" alt="pin-active"/>
 
 					</div>
 					<h2>pin-active</h2>
@@ -289,7 +319,7 @@ pre-defined in the external sprite.
 					<div class="icon-box">
 
 						<!-- pin-deactive -->
-						<img src="sprites.svg#pin-deactive" class="svg-pin-deactive-dims" alt="pin-deactive"/>
+						<img src="sprites.svg#pin-deactive" class="pin-deactive-dims" alt="pin-deactive"/>
 
 					</div>
 					<h2>pin-deactive</h2>
@@ -298,16 +328,34 @@ pre-defined in the external sprite.
 					<div class="icon-box">
 
 						<!-- pin-loading -->
-						<img src="sprites.svg#pin-loading" class="svg-pin-loading-dims" alt="pin-loading"/>
+						<img src="sprites.svg#pin-loading" class="pin-loading-dims" alt="pin-loading"/>
 
 					</div>
 					<h2>pin-loading</h2>
+				</li>
+				<li title="taskList-empty">
+					<div class="icon-box">
+
+						<!-- taskList-empty -->
+						<img src="sprites.svg#taskList-empty" class="taskList-empty-dims" alt="taskList-empty"/>
+
+					</div>
+					<h2>taskList-empty</h2>
+				</li>
+				<li title="taskList-error">
+					<div class="icon-box">
+
+						<!-- taskList-error -->
+						<img src="sprites.svg#taskList-error" class="taskList-error-dims" alt="taskList-error"/>
+
+					</div>
+					<h2>taskList-error</h2>
 				</li>
 				<li title="toggleButton-closed">
 					<div class="icon-box">
 
 						<!-- toggleButton-closed -->
-						<img src="sprites.svg#toggleButton-closed" class="svg-toggleButton-closed-dims" alt="toggleButton-closed"/>
+						<img src="sprites.svg#toggleButton-closed" class="toggleButton-closed-dims" alt="toggleButton-closed"/>
 
 					</div>
 					<h2>toggleButton-closed</h2>
@@ -316,7 +364,7 @@ pre-defined in the external sprite.
 					<div class="icon-box">
 
 						<!-- toggleButton-openned -->
-						<img src="sprites.svg#toggleButton-openned" class="svg-toggleButton-openned-dims" alt="toggleButton-openned"/>
+						<img src="sprites.svg#toggleButton-openned" class="toggleButton-openned-dims" alt="toggleButton-openned"/>
 
 					</div>
 					<h2>toggleButton-openned</h2>
@@ -329,7 +377,7 @@ pre-defined in the external sprite.
 
 		</section>
 		<footer>
-			<p>Generated at Wed, 16 Feb 2022 01:47:37 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+			<p>Generated at Sun, 20 Feb 2022 01:48:13 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
 		</footer>
 	</body>
 </html>

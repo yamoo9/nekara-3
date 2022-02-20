@@ -1,4 +1,5 @@
 import { PinButton } from './pin-button';
+import { rangeControl } from '@/utils';
 
 export default {
   title: 'TaskBox / Atomics / PinButton',
@@ -7,14 +8,11 @@ export default {
     ...PinButton.defaultProps,
   },
   argTypes: {
-    size: {
-      control: {
-        type: 'range',
-        min: 20,
-        step: 2,
-        max: 40,
-      },
-    },
+    size: rangeControl({
+      min: 20,
+      step: 2,
+      max: 40,
+    }),
   },
 };
 

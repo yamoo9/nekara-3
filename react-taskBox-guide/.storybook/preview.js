@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ko from 'axe-core/locales/ko.json';
 import { GlobalStyle } from '@/styles/GlobalStyle';
 
 export const decorators = [
   (Story) => (
-    <>
+    <StrictMode>
       <GlobalStyle />
       <Story />
-    </>
+    </StrictMode>
   ),
 ];
 

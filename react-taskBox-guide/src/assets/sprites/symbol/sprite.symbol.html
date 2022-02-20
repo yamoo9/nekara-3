@@ -19,16 +19,18 @@ They might well be outsourced to an external stylesheet of course.
 -->
 
 <style type="text/css">
-	.svg-checker-checked-dims { width: 24px; height: 24px; }
-	.svg-checker-loading-dims { width: 24px; height: 24px; }
-	.svg-checker-unchecked-dims { width: 24px; height: 24px; }
-	.svg-logo-dark-dims { width: 24px; height: 21px; }
-	.svg-logo-light-dims { width: 24px; height: 21px; }
-	.svg-pin-active-dims { width: 24px; height: 24px; }
-	.svg-pin-deactive-dims { width: 24px; height: 24px; }
-	.svg-pin-loading-dims { width: 24px; height: 24px; }
-	.svg-toggleButton-closed-dims { width: 24px; height: 25px; }
-	.svg-toggleButton-openned-dims { width: 24px; height: 25px; }
+	checker-checked-dims { width: 24px; height: 24px; }
+	checker-loading-dims { width: 24px; height: 24px; }
+	checker-unchecked-dims { width: 24px; height: 24px; }
+	logo-dark-dims { width: 24px; height: 21px; }
+	logo-light-dims { width: 24px; height: 21px; }
+	pin-active-dims { width: 24px; height: 24px; }
+	pin-deactive-dims { width: 24px; height: 24px; }
+	pin-loading-dims { width: 24px; height: 24px; }
+	taskList-empty-dims { width: 30px; height: 42px; }
+	taskList-error-dims { width: 30px; height: 42px; }
+	toggleButton-closed-dims { width: 24px; height: 25px; }
+	toggleButton-openned-dims { width: 24px; height: 25px; }
 </style>
 <!--
 ====================================================================================================
@@ -59,6 +61,8 @@ for further details on how to create this embeddable sprite variant.
 		<symbol fill="none" viewBox="0 0 24 24" id="pin-active" xmlns="http://www.w3.org/2000/svg"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" fill="#202656"/></symbol>
 		<symbol fill="none" viewBox="0 0 24 24" id="pin-deactive" xmlns="http://www.w3.org/2000/svg"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" fill="#ADB3BD"/></symbol>
 		<symbol fill="none" viewBox="0 0 24 24" id="pin-loading" xmlns="http://www.w3.org/2000/svg"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" fill="#F4F5F8"/></symbol>
+		<symbol fill="none" viewBox="0 0 30 42" id="taskList-empty" xmlns="http://www.w3.org/2000/svg"><path d="M6.588 25.196l-3.534 14.84c-.372 1.566 1.473 2.637 2.538 1.472l23.987-26.245c.915-1.001.24-2.665-1.082-2.665H19.58l3.342-10.525c.324-1.02-.4-2.073-1.423-2.073H7.5c-.67 0-1.258.466-1.442 1.142l-6 22.046c-.273 1.006.446 2.008 1.443 2.008h5.087zm9.488-11.522c-.324 1.02.399 2.073 1.423 2.073h7.48L7.332 35.055l2.632-11.052c.237-.994-.48-1.957-1.455-1.957h-5.02L8.631 3.15h10.786l-3.341 10.526z" fill="#FCB90D"/></symbol>
+		<symbol fill="none" viewBox="0 0 30 42" id="taskList-error" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#jclip0_6_1345)"><path d="M30 13.857a7.857 7.857 0 11-15.715 0 7.857 7.857 0 0115.715 0zm-7.857-5a.714.714 0 00-.715.714v5.715a.714.714 0 001.429 0V9.57a.714.714 0 00-.714-.714zm0 10.179a.893.893 0 100-1.786.893.893 0 000 1.786zm4.285 6.607v-3.546a9.31 9.31 0 002.143-1.54v5.086a4.643 4.643 0 01-4.643 4.643h-8.196l-7.163 5.358a1.786 1.786 0 01-2.855-1.43l-.001-3.928h-1.07A4.643 4.643 0 010 25.643V13.5a4.643 4.643 0 014.643-4.643h9.674A9.243 9.243 0 0013.305 11H4.643a2.5 2.5 0 00-2.5 2.5v12.143a2.5 2.5 0 002.5 2.5h3.212l.002 5.358 7.162-5.358h8.91a2.5 2.5 0 002.5-2.5z" fill="#E21414"/></g><defs><clipPath id="jclip0_6_1345"><path fill="#fff" d="M0 0h30v42H0z"/></clipPath></defs></symbol>
 		<symbol fill="none" viewBox="0 0 24 25" id="toggleButton-closed" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M19 6.294H5a1 1 0 000 2h14a1 1 0 100-2zm0 5H5a1 1 0 100 2h14a1 1 0 100-2zm-14 5h14a1 1 0 110 2H5a1 1 0 110-2z" fill="#202656"/></symbol>
 		<symbol fill="none" viewBox="0 0 24 25" id="toggleButton-openned" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 10.88l6.351-6.351a1.01 1.01 0 011.427-.013c.39.39.385 1.03-.013 1.427l-6.35 6.351 6.35 6.352a1.01 1.01 0 01.013 1.427 1.01 1.01 0 01-1.427-.013L12 13.709l-6.351 6.35a1.01 1.01 0 01-1.427.014 1.01 1.01 0 01.013-1.427l6.35-6.352-6.35-6.35a1.01 1.01 0 01-.013-1.428 1.01 1.01 0 011.427.013L12 10.88z" fill="#202656"/></symbol>
 </svg>
@@ -94,7 +98,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 
 						<!-- checker-checked -->
-						<svg class="svg-checker-checked-dims">
+						<svg class="checker-checked-dims">
 							<use xlink:href="#checker-checked"></use>
 						</svg>
 
@@ -105,7 +109,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 
 						<!-- checker-loading -->
-						<svg class="svg-checker-loading-dims">
+						<svg class="checker-loading-dims">
 							<use xlink:href="#checker-loading"></use>
 						</svg>
 
@@ -116,7 +120,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 
 						<!-- checker-unchecked -->
-						<svg class="svg-checker-unchecked-dims">
+						<svg class="checker-unchecked-dims">
 							<use xlink:href="#checker-unchecked"></use>
 						</svg>
 
@@ -127,7 +131,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 
 						<!-- logo-dark -->
-						<svg class="svg-logo-dark-dims">
+						<svg class="logo-dark-dims">
 							<use xlink:href="#logo-dark"></use>
 						</svg>
 
@@ -138,7 +142,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 
 						<!-- logo-light -->
-						<svg class="svg-logo-light-dims">
+						<svg class="logo-light-dims">
 							<use xlink:href="#logo-light"></use>
 						</svg>
 
@@ -149,7 +153,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 
 						<!-- pin-active -->
-						<svg class="svg-pin-active-dims">
+						<svg class="pin-active-dims">
 							<use xlink:href="#pin-active"></use>
 						</svg>
 
@@ -160,7 +164,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 
 						<!-- pin-deactive -->
-						<svg class="svg-pin-deactive-dims">
+						<svg class="pin-deactive-dims">
 							<use xlink:href="#pin-deactive"></use>
 						</svg>
 
@@ -171,18 +175,40 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 
 						<!-- pin-loading -->
-						<svg class="svg-pin-loading-dims">
+						<svg class="pin-loading-dims">
 							<use xlink:href="#pin-loading"></use>
 						</svg>
 
 					</div>
 					<h2>pin-loading</h2>
 				</li>
+				<li title="taskList-empty">
+					<div class="icon-box">
+
+						<!-- taskList-empty -->
+						<svg class="taskList-empty-dims">
+							<use xlink:href="#taskList-empty"></use>
+						</svg>
+
+					</div>
+					<h2>taskList-empty</h2>
+				</li>
+				<li title="taskList-error">
+					<div class="icon-box">
+
+						<!-- taskList-error -->
+						<svg class="taskList-error-dims">
+							<use xlink:href="#taskList-error"></use>
+						</svg>
+
+					</div>
+					<h2>taskList-error</h2>
+				</li>
 				<li title="toggleButton-closed">
 					<div class="icon-box">
 
 						<!-- toggleButton-closed -->
-						<svg class="svg-toggleButton-closed-dims">
+						<svg class="toggleButton-closed-dims">
 							<use xlink:href="#toggleButton-closed"></use>
 						</svg>
 
@@ -193,7 +219,7 @@ embedded above. They may be styled via CSS.
 					<div class="icon-box">
 
 						<!-- toggleButton-openned -->
-						<svg class="svg-toggleButton-openned-dims">
+						<svg class="toggleButton-openned-dims">
 							<use xlink:href="#toggleButton-openned"></use>
 						</svg>
 
@@ -225,7 +251,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 
 						<!-- checker-checked -->
-						<svg class="svg-checker-checked-dims">
+						<svg class="checker-checked-dims">
 							<use xlink:href="sprites.svg#checker-checked"></use>
 						</svg>
 
@@ -236,7 +262,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 
 						<!-- checker-loading -->
-						<svg class="svg-checker-loading-dims">
+						<svg class="checker-loading-dims">
 							<use xlink:href="sprites.svg#checker-loading"></use>
 						</svg>
 
@@ -247,7 +273,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 
 						<!-- checker-unchecked -->
-						<svg class="svg-checker-unchecked-dims">
+						<svg class="checker-unchecked-dims">
 							<use xlink:href="sprites.svg#checker-unchecked"></use>
 						</svg>
 
@@ -258,7 +284,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 
 						<!-- logo-dark -->
-						<svg class="svg-logo-dark-dims">
+						<svg class="logo-dark-dims">
 							<use xlink:href="sprites.svg#logo-dark"></use>
 						</svg>
 
@@ -269,7 +295,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 
 						<!-- logo-light -->
-						<svg class="svg-logo-light-dims">
+						<svg class="logo-light-dims">
 							<use xlink:href="sprites.svg#logo-light"></use>
 						</svg>
 
@@ -280,7 +306,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 
 						<!-- pin-active -->
-						<svg class="svg-pin-active-dims">
+						<svg class="pin-active-dims">
 							<use xlink:href="sprites.svg#pin-active"></use>
 						</svg>
 
@@ -291,7 +317,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 
 						<!-- pin-deactive -->
-						<svg class="svg-pin-deactive-dims">
+						<svg class="pin-deactive-dims">
 							<use xlink:href="sprites.svg#pin-deactive"></use>
 						</svg>
 
@@ -302,18 +328,40 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 
 						<!-- pin-loading -->
-						<svg class="svg-pin-loading-dims">
+						<svg class="pin-loading-dims">
 							<use xlink:href="sprites.svg#pin-loading"></use>
 						</svg>
 
 					</div>
 					<h2>pin-loading</h2>
 				</li>
+				<li title="taskList-empty">
+					<div class="icon-box">
+
+						<!-- taskList-empty -->
+						<svg class="taskList-empty-dims">
+							<use xlink:href="sprites.svg#taskList-empty"></use>
+						</svg>
+
+					</div>
+					<h2>taskList-empty</h2>
+				</li>
+				<li title="taskList-error">
+					<div class="icon-box">
+
+						<!-- taskList-error -->
+						<svg class="taskList-error-dims">
+							<use xlink:href="sprites.svg#taskList-error"></use>
+						</svg>
+
+					</div>
+					<h2>taskList-error</h2>
+				</li>
 				<li title="toggleButton-closed">
 					<div class="icon-box">
 
 						<!-- toggleButton-closed -->
-						<svg class="svg-toggleButton-closed-dims">
+						<svg class="toggleButton-closed-dims">
 							<use xlink:href="sprites.svg#toggleButton-closed"></use>
 						</svg>
 
@@ -324,7 +372,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 					<div class="icon-box">
 
 						<!-- toggleButton-openned -->
-						<svg class="svg-toggleButton-openned-dims">
+						<svg class="toggleButton-openned-dims">
 							<use xlink:href="sprites.svg#toggleButton-openned"></use>
 						</svg>
 
@@ -339,7 +387,7 @@ SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
 
 		</section>
 		<footer>
-			<p>Generated at Wed, 16 Feb 2022 01:47:37 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+			<p>Generated at Sun, 20 Feb 2022 01:48:13 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
 		</footer>
 	</body>
 </html>

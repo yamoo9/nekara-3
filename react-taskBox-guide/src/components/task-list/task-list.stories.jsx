@@ -28,6 +28,20 @@ export default {
 const Template = (args) => <TaskList {...args} />;
 
 export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
+
+export const Empty = Template.bind({});
+Empty.args = {
+  loading: false,
+  items: [],
+};
+
+export const HasError = Template.bind({});
+HasError.args = {
+  error: true,
+};
 
 export const Loaded = Template.bind({});
 Loaded.args = {

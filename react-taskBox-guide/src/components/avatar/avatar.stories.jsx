@@ -1,37 +1,31 @@
 import { Avatar } from './avatar';
+import { rangeControl, selectControl } from '@/utils';
 
 export default {
   title: 'TaskBox / Atomics / Avatar',
   component: Avatar,
   args: {
     ...Avatar.defaultProps,
+    src: '',
   },
   argTypes: {
-    size: {
-      control: {
-        type: 'range',
-        min: 20,
-        step: 1,
-        max: 36,
-      },
-    },
-    src: {
-      control: {
-        type: 'select',
-        options: [
-          '/api/faces/woman/01.jpg',
-          '/api/faces/woman/02.jpg',
-          '/api/faces/woman/03.jpg',
-          '/api/faces/woman/04.jpg',
-          '/api/faces/woman/05.jpg',
-          '/api/faces/man/01.jpg',
-          '/api/faces/man/02.jpg',
-          '/api/faces/man/03.jpg',
-          '/api/faces/man/04.jpg',
-          '/api/faces/man/05.jpg',
-        ],
-      },
-    },
+    size: rangeControl({
+      min: 20,
+      step: 1,
+      max: 36,
+    }),
+    src: selectControl([
+      '/api/faces/woman/01.jpg',
+      '/api/faces/woman/02.jpg',
+      '/api/faces/woman/03.jpg',
+      '/api/faces/woman/04.jpg',
+      '/api/faces/woman/05.jpg',
+      '/api/faces/man/01.jpg',
+      '/api/faces/man/02.jpg',
+      '/api/faces/man/03.jpg',
+      '/api/faces/man/04.jpg',
+      '/api/faces/man/05.jpg',
+    ]),
   },
 };
 

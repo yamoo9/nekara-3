@@ -1,13 +1,5 @@
 import { SVGIcon, iconTypes } from './svgicon.jsx';
-
-const langeControl = {
-  control: {
-    type: 'range',
-    min: 12,
-    step: 2,
-    max: 200
-  },
-}
+import { rangeControl } from '@/utils';
 
 export default {
   title: 'TaskBox / Atomics / SVGIcon',
@@ -16,12 +8,11 @@ export default {
     ...SVGIcon.defaultProps,
   },
   argTypes: {
-    size: langeControl,
-    width: langeControl,
-    height: langeControl
-  }
+    size: rangeControl(),
+    width: rangeControl(),
+    height: rangeControl({ max: 50 }),
+  },
 };
-
 
 const Template = (args) => <SVGIcon {...args} />;
 
@@ -42,7 +33,6 @@ Checked.args = {
   id: 'checker-checked',
   label: '체크 함',
 };
-
 
 export const PinLoading = Template.bind({});
 PinLoading.args = {
@@ -88,8 +78,22 @@ LogoDark.args = {
 LogoDark.parameters = {
   backgrounds: {
     default: 'dark',
-    values: [
-      { name: 'dark', value: '#111' }
-    ]
-  }
-}
+    values: [{ name: 'dark', value: '#111' }],
+  },
+};
+
+export const TaskListEmpty = Template.bind({});
+TaskListEmpty.args = {
+  id: 'taskList-empty',
+  label: '텅 빈 목록',
+  width: 30,
+  height: 42,
+};
+
+export const TaskListError = Template.bind({});
+TaskListError.args = {
+  id: 'taskList-error',
+  label: '데이터 패치 실패',
+  width: 30,
+  height: 42,
+};

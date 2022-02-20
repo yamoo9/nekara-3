@@ -1,4 +1,5 @@
 import { ToggleButton } from './toggle-button';
+import { rangeControl } from '@/utils';
 
 export default {
   title: 'TaskBox / Atomics / ToggleButton',
@@ -7,14 +8,11 @@ export default {
     ...ToggleButton.defaultProps,
   },
   argTypes: {
-    size: {
-      control: {
-        type: 'range',
-        min: 12,
-        step: 2,
-        max: 100,
-      },
-    },
+    size: rangeControl({
+      min: 12,
+      step: 2,
+      max: 100,
+    }),
   },
 };
 

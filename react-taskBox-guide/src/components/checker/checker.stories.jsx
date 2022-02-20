@@ -1,4 +1,5 @@
 import { Checker } from './checker';
+import { rangeControl } from '@/utils';
 
 export default {
   title: 'TaskBox / Atomics / Checker',
@@ -10,14 +11,11 @@ export default {
     size: 16,
   },
   argTypes: {
-    size: {
-      control: {
-        type: 'range',
-        min: 12,
-        step: 1,
-        max: 48,
-      },
-    },
+    size: rangeControl({
+      min: 12,
+      step: 1,
+      max: 48,
+    }),
   },
 };
 

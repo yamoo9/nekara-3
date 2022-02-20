@@ -92,9 +92,9 @@ TaskItem.propTypes = {
   /** 핀(고정) 상태 설정 */
   pinned: bool,
   /** 아이템 헤드라인(제목) */
-  headline: string.isRequired,
+  headline: string,
   /** 아이템 디스크립션(설명) */
-  description: string.isRequired,
+  description: string,
   /** 아바타 정보(소스, 이름) */
-  avatar: Avatar.propTypes.isRequired,
+  avatar: shape(Avatar.propTypes),
 };

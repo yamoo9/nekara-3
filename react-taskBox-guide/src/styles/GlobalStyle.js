@@ -4,6 +4,10 @@ import { theme } from '@/styles/theme';
 export const GlobalStyle = () => (
   <Global
     styles={css`
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
         background: #fff;
