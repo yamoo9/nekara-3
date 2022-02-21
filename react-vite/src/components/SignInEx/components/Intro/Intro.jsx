@@ -25,7 +25,7 @@ function Intro() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 100,
+        fontSize: !isAuthorized ? 100 : 30,
         color: '#6627e3',
       }}
     >

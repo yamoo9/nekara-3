@@ -1,14 +1,38 @@
 import React from 'react';
-import { any, element, oneOf, oneOfType, string } from 'prop-types';
+import { element, oneOf, oneOfType, string } from 'prop-types';
 
 const AuthContext = React.createContext();
 
 export const AuthProvider = (props) => {
-  return <AuthContext.Provider {...props} />;
+  const [currentUser, setCurrentUser] = React.useState(null);
+  const [isAuthorized, setIsAuthorized] = React.useState(false);
+
+  const signIn = React.useCallback((signInedUser) => {
+    setCurrentUser(signInedUser);
+    setIsAuthorized(true);
+  }, []);
+
+  const signOut = React.useCallback(() => {
+    setCurrentUser(null);
+    setIsAuthorized(false);
+  }, []);
+
+  const value = React.useMemo(
+    () => ({
+      auth: {
+        isAuthorized,
+        currentUser,
+      },
+      signIn,
+      signOut,
+    }),
+    [currentUser, isAuthorized, signIn, signOut]
+  );
+
+  return <AuthContext.Provider value={value} {...props} />;
 };
 
 AuthProvider.propTypes = {
-  value: any.isRequired, // required
   children: oneOfType([string, oneOf([null]), element]), // optional
 };
 

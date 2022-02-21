@@ -1,30 +1,19 @@
 import { css } from '@emotion/react';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { TaskBoxProvider } from '@/contexts';
 import { LayoutBase } from '@/pages';
 import { TaskList } from '@/components';
+import { useFetch } from '@/hooks';
 
 /* -------------------------------------------------------------------------- */
 
 export default function TaskBox(props) {
-  
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [items, setItems] = useState([]);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const items = await (await fetch('/api/taskList.json')).json();
-        setItems(items);
-      } catch (error) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchData();
-  }, []);
+  const {
+    loading,
+    error,
+    data: items,
+    setData: setItems,
+  } = useFetch('/api/taskList.json');
 
   /* ------------------------------------------------------------------------ */
 
@@ -67,7 +56,7 @@ export default function TaskBox(props) {
         );
       },
     }),
-    [items]
+    [items, setItems]
   );
 
   return (
