@@ -1,6 +1,23 @@
 import React from 'react';
+import { useAuth } from '../../../../contexts';
+
+function PublicContents() {
+  return 'PUBILC';
+}
+function PrivateContents({ user }) {
+  return (
+    <div lang="en">
+      <h1>PRIVATE</h1>
+      <pre>{JSON.stringify(user, null, 2)}</pre>
+    </div>
+  );
+}
 
 function Intro() {
+  const {
+    auth: { currentUser, isAuthorized },
+  } = useAuth();
+
   return (
     <div
       style={{
@@ -12,7 +29,11 @@ function Intro() {
         color: '#6627e3',
       }}
     >
-      Intro
+      {isAuthorized ? (
+        <PrivateContents user={currentUser} />
+      ) : (
+        <PublicContents />
+      )}
     </div>
   );
 }
