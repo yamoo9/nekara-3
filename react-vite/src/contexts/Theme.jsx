@@ -2,14 +2,16 @@ import * as React from 'react';
 
 const defaultTheme = {
   light: {
-    background: '#f3f3f3',
+    background: '#fefefe',
     forground: '#191919',
-    accent: '#0d71f4' 
+    accent: '#0bb7b1',
+    lineHeight: 1.5,
   },
   dark: {
     background: '#131313',
     forground: '#f9f8f9',
-    accent: '#f40d66' 
+    accent: '#e6790c',
+    lineHeight: 2,
   }
 }
 
