@@ -9,7 +9,7 @@ export function Header({ open, onToggle, logoProps, toggleButtonProps, ...restPr
   return (
     <header css={headerStyle} {...restProps}>
       <Logo homelink {...logoProps} />
-      <ToggleButton open={open} onClick={onToggle} {...toggleButtonProps} />
+      <ToggleButton open={open} onToggle={onToggle} {...toggleButtonProps} />
     </header>
   );
 }

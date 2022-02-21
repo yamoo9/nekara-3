@@ -1,9 +1,12 @@
 import { Avatar } from './avatar';
-import { rangeControl, selectControl } from '@/utils';
+import { rangeControl, selectControl, designFigma } from '@/utils';
 
 export default {
   title: 'TaskBox / Atomics / Avatar',
   component: Avatar,
+  parameters: {
+    ...designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=4%3A17')
+  },  
   args: {
     ...Avatar.defaultProps,
     src: '',

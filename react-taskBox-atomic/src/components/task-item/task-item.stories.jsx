@@ -1,9 +1,20 @@
 import { TaskBoxProvider } from '@/contexts';
 import { TaskItem } from './task-item';
+import { designFigma } from '@/utils'
 
 export default {
   title: 'TaskBox / Molecules / TaskItem',
   component: TaskItem,
+  parameters: {
+    ...designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=4%3A33'),
+    backgrounds: {
+      default: 'gray',
+      values: [
+        { name: 'gray', value: '#eee' },
+        { name: 'darkgray', value: '#424242' },
+      ],
+    },
+  },
   decorators: [
     (Story) => (
       <TaskBoxProvider value={{}}>
@@ -13,15 +24,6 @@ export default {
       </TaskBoxProvider>
     ),
   ],
-  parameters: {
-    backgrounds: {
-      default: 'gray',
-      values: [
-        { name: 'gray', value: '#eee' },
-        { name: 'darkgray', value: '#424242' },
-      ],
-    },
-  },
   args: {
     ...TaskItem.defaultProps,
     id: 'task-item-diwd',

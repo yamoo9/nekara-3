@@ -1,12 +1,12 @@
 import { css } from '@emotion/react';
 import { SVGIcon } from '@/components';
-import { hideNoControlWarning } from '@/utils';
+import { hideNoControlWarning, designFigma } from '@/utils'
 import { LayoutBase } from './layoutBase';
 
 export default {
   title: 'TaskBox / Templates / LayoutBase',
   component: LayoutBase,
-  ...hideNoControlWarning(),
+  ...hideNoControlWarning(designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=6%3A365')),
 };
 
 const Template = (args) => (

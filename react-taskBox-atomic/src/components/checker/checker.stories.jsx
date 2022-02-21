@@ -1,9 +1,12 @@
 import { Checker } from './checker';
-import { rangeControl } from '@/utils';
+import { rangeControl, designFigma } from '@/utils'
 
 export default {
   title: 'TaskBox / Atomics / Checker',
   component: Checker,
+  parameters: {
+    ...designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=2%3A12')
+  },
   args: {
     label: '아카이브',
     checked: false,

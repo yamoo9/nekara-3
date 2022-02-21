@@ -1,6 +1,7 @@
 import taskList from '../../../public/api/taskList.json';
 import { TaskBoxProvider } from '@/contexts';
 import { TaskList } from './task-list';
+import { designFigma } from '@/utils'
 
 export default {
   title: 'TaskBox / Organisms / TaskList',
@@ -15,6 +16,7 @@ export default {
     ),
   ],
   parameters: {
+    ...designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=6%3A813'),
     backgrounds: {
       default: 'gray',
       values: [

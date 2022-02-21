@@ -14,10 +14,20 @@ export const selectControl = (options) => ({
   },
 });
 
-export const hideNoControlWarning = () => ({
+export const hideNoControlWarning = (added: {}) => ({
   parameters: {
     controls: {
       hideNoControlsWarning: true,
     },
+    ...added,
   },
 });
+
+export const designFigma = (url) => {
+  return {
+    design: {
+      type: 'figma',
+      url,
+    },
+  };
+};

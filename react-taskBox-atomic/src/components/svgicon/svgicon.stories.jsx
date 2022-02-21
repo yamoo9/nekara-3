@@ -1,9 +1,12 @@
 import { SVGIcon } from './svgicon.jsx';
-import { rangeControl } from '@/utils';
+import { rangeControl, designFigma } from '@/utils'
 
 export default {
   title: 'TaskBox / Atomics / SVGIcon',
   component: SVGIcon,
+  parameters: {
+    ...designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=2%3A5')
+  },
   args: {
     ...SVGIcon.defaultProps,
   },

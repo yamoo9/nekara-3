@@ -1,9 +1,12 @@
 import { Logo } from './logo';
-import { rangeControl } from '@/utils';
+import { rangeControl, designFigma } from '@/utils'
 
 export default {
   title: 'TaskBox / Atomics / Logo',
   component: Logo,
+  parameters: {
+    ...designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=6%3A354')
+  },
   args: {
     ...Logo.defaultProps,
   },

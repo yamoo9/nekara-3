@@ -1,9 +1,12 @@
 import { PinButton } from './pin-button';
-import { rangeControl } from '@/utils';
+import { rangeControl, designFigma } from '@/utils'
 
 export default {
   title: 'TaskBox / Atomics / PinButton',
   component: PinButton,
+  parameters: {
+    ...designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=2%3A31')
+  },
   args: {
     ...PinButton.defaultProps,
   },

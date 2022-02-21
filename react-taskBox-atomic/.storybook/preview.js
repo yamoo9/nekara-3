@@ -1,8 +1,10 @@
 import React, { StrictMode } from 'react';
 import ko from 'axe-core/locales/ko.json';
 import { GlobalStyle } from '@/styles/GlobalStyle';
+import { withDesign } from 'storybook-addon-designs';
 
 export const decorators = [
+  withDesign,
   (Story) => (
     <StrictMode>
       <GlobalStyle />

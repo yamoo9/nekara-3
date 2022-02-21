@@ -1,9 +1,11 @@
 import { Header } from './header';
+import { designFigma } from '@/utils'
 
 export default {
   title: 'TaskBox / Molecules / Header',
   component: Header,
   parameters: {
+    ...designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=6%3A359'),
     backgrounds: {
       default: 'gray',
       values: [

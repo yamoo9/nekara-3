@@ -1,9 +1,12 @@
 import { ToggleButton } from './toggle-button';
-import { rangeControl } from '@/utils';
+import { rangeControl, designFigma } from '@/utils'
 
 export default {
   title: 'TaskBox / Atomics / ToggleButton',
   component: ToggleButton,
+  parameters: {
+    ...designFigma('https://www.figma.com/file/qbQoxOz0eOlJIFTxgHlSUL/Task-List?node-id=6%3A377'),
+  },
   args: {
     ...ToggleButton.defaultProps,
   },
