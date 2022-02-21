@@ -1,18 +1,11 @@
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
-import { ThemeEx } from './components/ThemeEx';
+import MainPage from './components/SignInEx/MainPage';
 import './index.css';
 
 render(
   <StrictMode>
-    <ThemeEx />
-    <ThemeEx isDarkMode />
-    <ThemeEx />
-    <ThemeEx isDarkMode />
-    <ThemeEx />
-    <ThemeEx isDarkMode />
-    <ThemeEx />
-    <ThemeEx isDarkMode />
+    <MainPage />
   </StrictMode>,
   document.getElementById('root')
 );
