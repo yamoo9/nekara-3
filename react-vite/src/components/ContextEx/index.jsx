@@ -34,18 +34,21 @@ export default function ContextExample() {
   ]);
 
   return (
-    <DataProvider value={data}>
-      <GrandParent>
-        <ParentTwo />
-        <ParentOne />
-      </GrandParent>
-      <GrandParent>
-        <Parent>
-          <Child>child 4</Child>
-          <Child>child 8</Child>
-          <Child>child 12</Child>
-        </Parent>
-      </GrandParent>
-    </DataProvider>
+    <>
+      <DataProvider value={data}>
+        <GrandParent>
+          <ParentTwo />
+          <ParentOne />
+        </GrandParent>
+        <GrandParent>
+          <Parent>
+            <Child>child 4</Child>
+            <Child>child 8</Child>
+            <Child>child 12</Child>
+          </Parent>
+        </GrandParent>
+        <Child>다른 컨텍스트의 Child 컴포넌트</Child>
+      </DataProvider>
+    </>
   );
 }

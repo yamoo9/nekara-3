@@ -1,11 +1,10 @@
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 import './index.css';
-import ContextExample from './components/ContextEx'
 
 render(
   <StrictMode>
-    <ContextExample />
+    <div />
   </StrictMode>,
   document.getElementById('root')
 );
