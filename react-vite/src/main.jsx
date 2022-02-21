@@ -17,12 +17,12 @@ const Text = ({ id, onEdit, onDelete, children, ...restProps }) => {
   );
 };
 
-const initialSinario = [
+const initialScenario = [
   { id: 'lkfs-fjkld-jflkxf', content: '마블 캐릭터 충돌' },
   { id: 'kdfd-wkdif-kclskw', content: 'DC 캐릭터 댄스 파티' },
 ];
 
-const sinarioReducer = (state, action) => {
+const scenarioReducer = (state, action) => {
   if (action.type === 'ADD_TEXT') {
     console.log('ADD_TEXT 요청 수락');
   }
@@ -38,9 +38,9 @@ const sinarioReducer = (state, action) => {
   return state;
 };
 
-const Sinario = () => {
+const Scenario = () => {
   // useReducer 훅 → 상태, 디스패치를 반환
-  const [sinario, dispatch] = useReducer(sinarioReducer, initialSinario);
+  const [scenario, dispatch] = useReducer(scenarioReducer, initialScenario);
 
   // 액션을 포함한 디스패치를 실행하는 이벤트 핸들러
   const handleDelete = (deleteId) =>
@@ -59,7 +59,7 @@ const Sinario = () => {
 
   return (
     <div style={{ margin: 30 }}>
-      {sinario.map(({ id, content }) => {
+      {scenario.map(({ id, content }) => {
         return (
           <Text key={id} id={id} onEdit={handleEdit} onDelete={handleDelete}>
             {content}
@@ -72,7 +72,7 @@ const Sinario = () => {
 
 render(
   <StrictMode>
-    <Sinario />
+    <Scenario />
   </StrictMode>,
   document.getElementById('root')
 );
