@@ -4,7 +4,7 @@ function Intro() {
   return (
     <div
       style={{
-        minHeight: '50vh',
+        minHeight: '90vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

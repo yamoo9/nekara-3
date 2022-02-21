@@ -1,7 +1,14 @@
 import React from 'react';
 import Button from '../Button/Button';
+import { useAuth } from '../../../../contexts';
 
 function Navigation() {
+  const {
+    auth: { currentUser },
+    signIn,
+    signOut,
+  } = useAuth();
+
   return (
     <div
       style={{
@@ -36,8 +43,24 @@ function Navigation() {
         </ul>
       </nav>
       <div style={{ display: 'flex', gap: 4 }}>
-        <Button>회원가입</Button>
-        <Button>로그인</Button>
+        {currentUser ? (
+          <Button onClick={signOut}>로그아웃</Button>
+        ) : (
+          <>
+            <Button>회원가입</Button>
+            <Button
+              onClick={() =>
+                signIn({
+                  displayName: 'yamoo9',
+                  level: 'instructor',
+                  photoURL: '...',
+                })
+              }
+            >
+              로그인
+            </Button>
+          </>
+        )}
       </div>
     </div>
   );
