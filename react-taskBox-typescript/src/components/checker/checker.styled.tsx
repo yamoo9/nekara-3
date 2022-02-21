@@ -1,0 +1,52 @@
+import styled from '@emotion/styled';
+import sprites from '@/assets/sprites/view/sprites.svg';
+import { theme } from '@/styles/theme';
+import { CheckerWrapperProps } from '@/types';
+
+export const Wrapper = styled.span<CheckerWrapperProps>`
+  display: inline-block;
+  position: relative;
+  ${({ $size }) => {
+    if (typeof $size === 'number') {
+      return {
+        width: `${$size}px`,
+        height: `${$size}px`,
+      };
+    }
+    return {
+      width: ($size as string).includes('px') ? `${$size}px` : $size,
+      height: ($size as string).includes('px') ? `${$size}px` : $size,
+    };
+  }};
+  background: ${({ $loading }) =>
+    $loading ? theme.colors.Primary[50] : theme.colors.White};
+  border-radius: 12px;
+
+  :focus-within::before {
+    outline: 3px solid ${theme.colors.focus[50]};
+    border-radius: 6px;
+  }
+
+  & input {
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    opacity: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    ${({ checked, $loading }) => {
+      let id = 'checker-unchecked';
+      if (checked) id = 'checker-checked';
+      if ($loading) id = 'checker-loading';
+
+      return `background: url("${sprites}#${id}") center center / cover;`;
+    }}
+  }
+`;
