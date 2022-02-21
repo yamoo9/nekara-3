@@ -1,16 +1,42 @@
-import React, { useReducer, StrictMode } from 'react';
+import React, { useState, useReducer, StrictMode } from 'react';
 import { render } from 'react-dom';
-// import MainPage from './components/SignInEx/MainPage';
 import './index.css';
 
-const Text = ({ id, onEdit, onDelete, children, ...restProps }) => {
+const Text = ({ draft, onEdit, onDelete, children, ...restProps }) => {
+  const [editMode, setEditMode] = useState(false);
+  const [editContent, setEditContent] = useState(draft.content);
+
   return (
     <p {...restProps}>
-      {children}{' '}
-      <button type="button" onClick={() => onEdit(id)}>
-        수정
-      </button>
-      <button type="button" onClick={() => onDelete(id)}>
+      {!editMode ? (
+        <span>{children}</span>
+      ) : (
+        <textarea
+          value={editContent}
+          onChange={(e) => {
+            setEditContent(e.target.value);
+          }}
+        />
+      )}{' '}
+      {!editMode ? (
+        <button type="button" onClick={() => setEditMode(true)}>
+          수정
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={() => {
+            onEdit({
+              ...draft, // { id, content }
+              content: editContent,
+            });
+            setEditMode(false);
+          }}
+        >
+          확인
+        </button>
+      )}
+      <button type="button" onClick={() => onDelete(draft.id)}>
         삭제
       </button>
     </p>
@@ -18,16 +44,26 @@ const Text = ({ id, onEdit, onDelete, children, ...restProps }) => {
 };
 
 const initialScenario = [
-  { id: 'lkfs-fjkld-jflkxf', content: '마블 캐릭터 충돌' },
-  { id: 'kdfd-wkdif-kclskw', content: 'DC 캐릭터 댄스 파티' },
+  { id: 'lkfs-fjkld-jflkxf1', content: '마블 캐릭터 충돌1' },
+  { id: 'lkfs-fjkld-jflkxf2', content: '마블 캐릭터 충돌2' },
+  { id: 'lkfs-fjkld-jflkxf3', content: '마블 캐릭터 충돌3' },
+  { id: 'lkfs-fjkld-jflkxf4', content: '마블 캐릭터 충돌4' },
+  { id: 'kdfd-wkdif-kclskw5', content: 'DC 캐릭터 댄스 파티2' },
+  { id: 'kdfd-wkdif-kclskw6', content: 'DC 캐릭터 댄스 파티3' },
+  { id: 'kdfd-wkdif-kclskw7', content: 'DC 캐릭터 댄스 파티4' },
+  { id: 'kdfd-wkdif-kclskw8', content: 'DC 캐릭터 댄스 파티5' },
+  { id: 'kdfd-wkdif-kclskw9', content: 'DC 캐릭터 댄스 파티6' },
 ];
 
 const scenarioReducer = (state, action) => {
-  if (action.type === 'ADD_TEXT') {
-    console.log('ADD_TEXT 요청 수락');
-  }
   if (action.type === 'EDIT_TEXT') {
     console.log('EDIT_TEXT 요청 수락');
+    return state.map((draft) => {
+      if (draft.id === action.payload.id) {
+        return action.payload;
+      }
+      return draft;
+    });
   }
   if (action.type === 'DELETE_TEXT') {
     console.log('DELETE_TEXT 요청 수락');
@@ -61,7 +97,12 @@ const Scenario = () => {
     <div style={{ margin: 30 }}>
       {scenario.map(({ id, content }) => {
         return (
-          <Text key={id} id={id} onEdit={handleEdit} onDelete={handleDelete}>
+          <Text
+            key={id}
+            draft={{ id, content }}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          >
             {content}
           </Text>
         );
