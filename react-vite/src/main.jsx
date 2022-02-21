@@ -1,11 +1,11 @@
 import { StrictMode } from 'react';
 import { render } from 'react-dom';
 import './index.css';
-import { CountContainer } from './components/Counter/container';
+import ContextExample from './components/ContextEx'
 
 render(
   <StrictMode>
-    <CountContainer />
+    <ContextExample />
   </StrictMode>,
   document.getElementById('root')
 );
