@@ -1,7 +1,7 @@
 import styles from './Spinner.module.css';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { string, number, oneOfType } from 'prop-types';
+import { string, number, oneOfType, exact } from 'prop-types';
 
 export const Spinner = ({
   fill,
@@ -10,24 +10,31 @@ export const Spinner = ({
   size,
   opacity,
   title,
+  messages,
   ...restProps
 }) => {
   useEffect(() => {
     // 로딩 시작 안내
     const loadingStartNode = document.getElementById('loading-start');
     loadingStartNode.setAttribute('role', 'alert');
-    loadingStartNode.insertAdjacentHTML('beforeend', `
+    loadingStartNode.insertAdjacentHTML(
+      'beforeend',
+      `
       <span className="a11yHidden">로딩 시작</span>
-    `);
+    `
+    );
 
     return () => {
       // 로딩 종료 안내
       loadingStartNode.removeAttribute('role');
       loadingStartNode.innerHTML = '';
       const loadingEndNode = document.getElementById('loading-end');
-      loadingEndNode.insertAdjacentHTML('beforeend', `
+      loadingEndNode.insertAdjacentHTML(
+        'beforeend',
+        `
         <span className="a11yHidden">로딩 종료</span>
-      `);
+      `
+      );
       setTimeout(() => (loadingEndNode.innerHTML = ''), 1000);
     };
   }, []);
@@ -38,7 +45,7 @@ export const Spinner = ({
       height={size}
       className={styles.container}
       style={{
-        opacity: opacity > 1 ? 1 : opacity < 0 ? 0 : opacity
+        opacity: opacity > 1 ? 1 : opacity < 0 ? 0 : opacity,
       }}
       viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid"
@@ -211,6 +218,10 @@ Spinner.defaultProps = {
   strokeWidth: 2,
   opacity: 1,
   size: 100,
+  messages: {
+    start: '로딩이 시작되었습니다.',
+    end: '로딩이 종료되었습니다.',
+  },
 };
 
 Spinner.propTypes = {
@@ -220,4 +231,8 @@ Spinner.propTypes = {
   size: oneOfType([number, string]),
   opacity: number,
   title: string,
+  message: exact({
+    start: string,
+    end: string,
+  }),
 };
