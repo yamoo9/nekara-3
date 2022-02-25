@@ -1,5 +1,6 @@
 import 'styles/index.css';
 import { StrictMode } from 'react';
+import { HelmetProvider } from 'react-helmet-async'
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from 'react-dom';
 import { AuthProvider } from 'contexts';
@@ -11,7 +12,9 @@ render(
   <StrictMode>  
     <AuthProvider>
       <Router>
-        <WireframeApp />
+        <HelmetProvider>
+          <WireframeApp />
+        </HelmetProvider>
       </Router>
     </AuthProvider>
   </StrictMode>,

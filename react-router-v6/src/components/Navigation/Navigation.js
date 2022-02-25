@@ -1,6 +1,6 @@
 import styles from './Navigation.module.css';
 import { string, exact, arrayOf } from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { SkipToContent } from 'components';
 import { classNames } from 'utils';
 import { useAuth } from 'contexts';
@@ -54,12 +54,14 @@ Navigation.propTypes = {
 Navigation.Item = function NavigationItem({ item, ...restProps }) {
   return (
     <li className={styles.item} {...restProps}>
-      <Link
+      <NavLink
         to={item.href}
-        className={styles.link}
+        className={({isActive}) =>
+          classNames(styles.link)(isActive && styles.active)
+        }
       >
         {item.text}
-      </Link>
+      </NavLink>
     </li>
   );
 };

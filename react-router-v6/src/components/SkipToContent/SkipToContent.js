@@ -14,7 +14,7 @@ export function SkipToContent({
   ...restProps
 }) {
 
-  const { pathname } = useLocation(); // Location { pathname, search, hash, state }
+  const { pathname } = useLocation();
 
   return createPortal(
     <A11yHidden
