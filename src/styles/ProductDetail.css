@@ -1,0 +1,49 @@
+.container {
+  
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.backLink {
+  width: 48px;
+  padding: 0.2em;
+  color: var(--tertiary-color);
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.headline {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 900;
+}
+
+.grid {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.table {
+  border-collapse: collapse;
+  border: 4px dashed var(--tertiary-color)  
+}
+
+.table th,
+.table td {
+  border-bottom: 2px dashed var(--tertiary-color);
+  padding: 1rem;
+  font-size: 1.2rem;
+}
+
+.table th {
+  min-width: 2em;
+  color: var(--tertiary-color);
+}
