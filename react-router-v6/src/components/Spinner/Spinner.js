@@ -1,3 +1,4 @@
+import styles from './Spinner.module.css';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { string, number, oneOfType } from 'prop-types';
@@ -7,6 +8,7 @@ export const Spinner = ({
   stroke,
   strokeWidth,
   size,
+  opacity,
   title,
   ...restProps
 }) => {
@@ -34,6 +36,10 @@ export const Spinner = ({
     <svg
       width={size}
       height={size}
+      className={styles.container}
+      style={{
+        opacity: opacity > 1 ? 1 : opacity < 0 ? 0 : opacity
+      }}
       viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid"
     >
@@ -203,6 +209,7 @@ Spinner.defaultProps = {
   fill: '#e5eff0',
   stroke: '#b4bfc0',
   strokeWidth: 2,
+  opacity: 1,
   size: 100,
 };
 
@@ -211,5 +218,6 @@ Spinner.propTypes = {
   stroke: string,
   strokeWidth: number,
   size: oneOfType([number, string]),
+  opacity: number,
   title: string,
 };

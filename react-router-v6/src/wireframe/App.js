@@ -43,10 +43,9 @@ export default function WireframeApp() {
       <Header className="wireframeBox">
         <Navigation list={navigation} />
       </Header>
-      <Spinner />
       <Main>
         {/* {renderRouteElement} */}
-        <Suspense fallback={<div>페이지 로딩 중...</div>}>
+        <Suspense fallback={<Spinner size={200} opacity={0.8} />}>
           <Routes>
             <Route index element={<Landing />} />
             <Route path="products" element={<Products />} />
