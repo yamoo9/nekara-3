@@ -1,6 +1,7 @@
 import styles from './Navigation.module.css';
 import { string, exact, arrayOf } from 'prop-types';
-import { Link, SkipToContent } from 'components';
+import { Link } from 'react-router-dom';
+import { SkipToContent } from 'components';
 import { classNames } from 'utils';
 
 /* -------------------------------------------------------------------------- */
@@ -11,17 +12,16 @@ const NavigationItemType = exact({
   text: string,
 });
 
-export function Navigation({ list, className, currentPage, ...restProps }) {
+export function Navigation({ list, className, ...restProps }) {
   return (
     <>
-      <SkipToContent currentPage={currentPage} />
+      <SkipToContent />
       {list && (
         <nav className={classNames(styles.container)(className)} {...restProps}>
           <ul className={classNames(styles.list)('resetList')}>
             {list.map((item) => (
               <Navigation.Item
                 key={item.id}
-                currentPage={currentPage}
                 item={item}
               />
             ))}
@@ -34,19 +34,17 @@ export function Navigation({ list, className, currentPage, ...restProps }) {
 
 Navigation.propTypes = {
   list: arrayOf(NavigationItemType),
-  currentPage: string,
   className: string,
 };
 
 /* -------------------------------------------------------------------------- */
 
-Navigation.Item = function ({ item, currentPage, ...restProps }) {
+Navigation.Item = function ({ item, ...restProps }) {
   return (
     <li className={styles.item} {...restProps}>
       <Link
         to={item.href}
         className={styles.link}
-        activeClass={item.href.includes(currentPage) ? styles.active : ''}
       >
         {item.text}
       </Link>
@@ -55,6 +53,5 @@ Navigation.Item = function ({ item, currentPage, ...restProps }) {
 };
 
 Navigation.Item.propTypes = {
-  currentPage: string.isRequired,
   item: NavigationItemType.isRequired,
 };

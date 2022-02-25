@@ -1,5 +1,6 @@
 import styles from './SkipToContent.module.css';
 import { createPortal } from 'react-dom';
+import { useLocation } from 'react-router-dom';
 import { string } from 'prop-types';
 import { A11yHidden, Link } from 'components';
 import { classNames } from 'utils';
@@ -9,14 +10,16 @@ import { classNames } from 'utils';
 export function SkipToContent({
   targetId,
   className,
-  currentPage,
   label,
   ...restProps
 }) {
+
+  const {pathname} = useLocation();
+
   return createPortal(
     <A11yHidden
       as={Link}
-      to={`/${currentPage}#${targetId}`}
+      to={`${pathname}#${targetId}`}
       className={classNames(`${styles.container} focusable`)(className)}
       {...restProps}
     >
@@ -35,5 +38,4 @@ SkipToContent.propTypes = {
   targetId: string,
   className: string,
   label: string,
-  currentPage: string.isRequired,
 };

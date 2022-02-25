@@ -1,41 +1,36 @@
 import styles from './App.module.css';
-import { useMemo } from 'react';
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Header, Main, Footer } from 'containers';
 import { Navigation } from 'components';
-import { useRouter } from 'hooks';
-
-import Landing from 'pages/Landing/Landing';
-import Products from 'pages/Products/Products';
-import Dashboard from 'pages/Dashboard/Dashboard';
+import { lazyComponent } from 'utils';
 
 /* -------------------------------------------------------------------------- */
 
-const getPageComponent = (currentPage) => {
-  switch (currentPage) {
-    case 'dashboard':
-      return Dashboard;
-    case 'products':
-      return Products;
-    case 'landing':
-    default:
-      return Landing;
-  }
-};
+const Landing = lazyComponent(() => import('pages/Landing/Landing'));
+const Products = lazyComponent(() => import('pages/Products/Products'));
+const Dashboard = lazyComponent(() => import('pages/Dashboard/Dashboard'));
 
 /* -------------------------------------------------------------------------- */
 
 export default function WireframeApp() {
-
-  const { navigation, currentPage } = useRouter();
-  const CurrentPageComponent = useMemo(() => getPageComponent(currentPage), [currentPage]);
+  const [navigation] = useState([
+    { id: 'landing', href: '/', text: '홈' },
+    { id: 'products', href: '/products', text: '프로덕트' },
+    { id: 'dashboard', href: '/dashboard', text: '대시보드' },
+  ]);
 
   return (
     <div className={styles.wireframe}>
       <Header className="wireframeBox">
-        <Navigation list={navigation} currentPage={currentPage} />
+        <Navigation list={navigation} />
       </Header>
       <Main>
-        <CurrentPageComponent />
+        <Routes>
+          <Route index element={<Landing />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
       </Main>
       <Footer>
         <div className="wireframeBox" />

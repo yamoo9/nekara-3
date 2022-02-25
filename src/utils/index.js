@@ -1,7 +1,24 @@
-export const isArray = (o) => Array.isArray(o);
+import loadable from '@loadable/component';
+import { Spinner } from 'components';
 
-export const isObject = (o) => o && typeof o === 'object' && !isArray(o);
+const fallbackLoadable = {
+  fallback: (
+    <Spinner
+      stroke="rgba(38, 227, 192, 0.65)"
+      messages={{
+        begin: '페이지 이동 중입니다.',
+        finish: '페이지 이동이 완료되었습니다.',
+      }}
+    />
+  ),
+};
 
-export const getPublicPath = (path) => `${process.env.PUBLIC_URL}/${path}`;
+export const lazyComponent = (callback) =>
+  loadable(
+    callback,
+    fallbackLoadable
+  );
 
-export const classNames = (baseClassNames) => (customClassNames = '') => `${baseClassNames} ${customClassNames}`.trim();
+export * from './isType';
+export * from './classNames';
+export * from './getPublicPath';
