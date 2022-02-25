@@ -21,6 +21,7 @@ import { lazyComponent } from 'utils';
 const Landing = lazyComponent(() => import('pages/Landing/Landing'));
 const Products = lazyComponent(() => import('pages/Products/Products'));
 const Dashboard = lazyComponent(() => import('pages/Dashboard/Dashboard'));
+const PageNotFound = lazyComponent(() => import('pages/PageNotFound/PageNotFound'));
 
 /* -------------------------------------------------------------------------- */
 
@@ -46,10 +47,11 @@ export default function WireframeApp() {
       </Header>
       <Main>
         {/* {renderRouteElement} */}
-        <Routes>
+        <Routes> {/* Switch */}
           <Route index element={<Landing />} />
           <Route path="products" element={<Products />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </Main>
       <Footer>
