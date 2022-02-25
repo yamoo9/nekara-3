@@ -1,0 +1,91 @@
+.wireframe {
+  display: flex;
+  flex-flow: column;
+  max-width: 80rem;
+  min-height: 90vh;
+  margin: 5vh auto;
+}
+
+/* landing ------------------------------------------------------------------ */
+
+.landing {
+
+}
+
+.landing .headline {
+  display: inline-block;
+}
+
+.landing .grid {
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+}
+
+@media (min-width: 40em) {
+  .landing .grid {
+    flex-direction: row;
+  }
+}
+
+.landing .gridItem {
+  flex: 1 0 40%;
+  margin: 0.5rem 2rem;
+}
+
+/* dashboard ---------------------------------------------------------------- */
+
+.dashboard {}
+
+.dashboard .headline {
+  display: inline-block;
+}
+
+.dashboard .grid {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 40em) {
+  .dashboard .grid {
+    flex-direction: row;
+  }
+}
+
+.dashboard .gridItem1 {
+  flex: 0 0 160px;
+  margin-right: 2rem;
+  min-height: 100px;
+}
+
+@media (min-width: 40em) {
+  .dashboard .gridItem1 {
+    margin-right: 2rem !important;
+  }
+}
+
+.dashboard .gridItem2 {
+  flex: 1;
+}
+
+.dashboard .gridItem2 .child1 {
+  min-height: 20px;
+  margin-bottom: 2rem !important;
+}
+.dashboard .gridItem2 .child2 {
+  min-height: 160px;
+}
+
+/* products ----------------------------------------------------------------- */
+
+.products {}
+
+.products .headline {
+  display: inline-block;
+}
+
+.products .grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
