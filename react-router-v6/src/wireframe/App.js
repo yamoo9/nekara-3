@@ -20,6 +20,7 @@ import { lazyComponent } from 'utils';
 // lazy를 사용해 dynamic import ← page component
 const Landing = lazyComponent(() => import('pages/Landing/Landing'));
 const Products = lazyComponent(() => import('pages/Products/Products'));
+const ProductDetail = lazyComponent(() => import('pages/Products/ProductDetail'));
 const Dashboard = lazyComponent(() => import('pages/Dashboard/Dashboard'));
 const PageNotFound = lazyComponent(() => import('pages/PageNotFound/PageNotFound'));
 
@@ -50,6 +51,7 @@ export default function WireframeApp() {
         <Routes> {/* Switch */}
           <Route index element={<Landing />} />
           <Route path="products" element={<Products />} />
+          <Route path="product/:id" element={<ProductDetail />} />
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
