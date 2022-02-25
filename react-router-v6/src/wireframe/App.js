@@ -9,12 +9,17 @@ import { Routes, Route, /* useRoutes */ } from 'react-router-dom';
 
 /* -------------------------------------------------------------------------- */
 
+// [동기]
 // import Dashboard from 'pages/Dashboard/Dashboard';
 // import Products from 'pages/Products/Products';
 // import Landing from 'pages/Landing/Landing';
+import { Spinner } from 'components';
 
+// [비동기]
 // lazy를 사용해 dynamic import ← page component
-
+const Landing = lazy(() => import('pages/Landing/Landing'));
+const Products = lazy(() => import('pages/Products/Products'));
+const Dashboard = lazy(() => import('pages/Dashboard/Dashboard'));
 
 /* -------------------------------------------------------------------------- */
 
@@ -38,13 +43,16 @@ export default function WireframeApp() {
       <Header className="wireframeBox">
         <Navigation list={navigation} />
       </Header>
+      <Spinner />
       <Main>
         {/* {renderRouteElement} */}
-        <Routes>
-          <Route index element={<Landing />} />
-          <Route path="products" element={<Products />} />
-          <Route path="dashboard" element={<Dashboard />} />
-        </Routes>
+        <Suspense fallback={<div>페이지 로딩 중...</div>}>
+          <Routes>
+            <Route index element={<Landing />} />
+            <Route path="products" element={<Products />} />
+            <Route path="dashboard" element={<Dashboard />} />
+          </Routes>
+        </Suspense>
       </Main>
       <Footer>
         <div className="wireframeBox" />
