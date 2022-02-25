@@ -1,10 +1,22 @@
 import styles from './Header.module.css';
 import { string, element } from 'prop-types';
 import { classNames } from 'utils';
+import { useAuth } from 'contexts'
 
 /* -------------------------------------------------------------------------- */
 
 export function Header({ className, children, ...restProps }) {
+
+  const { user, signIn, signOut } = useAuth();
+
+  const handleSignIn = () => {
+    signIn(
+      {
+        name: 'yamoo9',
+      },
+      'admin'
+    );
+  };
 
   return (
     <header
@@ -16,8 +28,9 @@ export function Header({ className, children, ...restProps }) {
         <button
           type="button"
           className={styles.button}
+          onClick={user ? signOut : handleSignIn}
         >
-          로그인
+          {user ? '로그아웃' : '로그인'}
         </button>
       </div>
     </header>
