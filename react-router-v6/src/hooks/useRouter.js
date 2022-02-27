@@ -1,6 +1,5 @@
 import { useReducer, useEffect } from 'react'
 
-/* ROUTER STATE ------------------------------------------------------------- */
 
 const initialRouteInfo = {
   currentPage: 'landing',
@@ -28,7 +27,7 @@ export function useRouter(initialRouteValue = initialRouteInfo) {
   const [routes, dispatch] = useReducer(routeReducer, initialRouteValue);
 
   useEffect(() => {
-    // REDIRECTION
+
     const { location } = window;
     if (location.pathname === '/') location.replace('/landing');
 
@@ -36,6 +35,7 @@ export function useRouter(initialRouteValue = initialRouteInfo) {
       type: CHANGE_ROUTE,
       payload: location.pathname.replace('/', ''),
     });
+    
   }, []);
 
   return { routes };

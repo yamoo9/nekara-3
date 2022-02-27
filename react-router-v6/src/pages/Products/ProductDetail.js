@@ -1,30 +1,35 @@
 import styles from './ProductDetail.module.css';
-import { useEffect, useState } from 'react'
-import { Helmet } from "react-helmet-async";
-import { setDocumentTitle } from 'utils'
-import { A11yHidden, Spinner, WireframeBox } from 'components';
-import { classNames } from 'utils';
-import { hangleVowels } from 'services';
-import { Link } from 'react-router-dom';
 import { ReactComponent as SvgBackLink } from 'assets/arrowLeft.svg';
+import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link, useParams } from 'react-router-dom';
+import { A11yHidden, Spinner, WireframeBox } from 'components';
+import { classNames, setDocumentTitle } from 'utils';
+import { hangleVowels } from 'services';
 
 
 export default function ProductDetail(props) {
-  
+
   const [vowel, setVowel] = useState(null);
 
-  const id = 10;
+  const { id } = useParams();
 
   useEffect(() => {
-    hangleVowels.getVowel(id).then((response) => {
-      setVowel(response);
+    
+    let mounted = true;
+
+    hangleVowels.getVowel(id).then((data) => {
+      mounted && setVowel(data);
     });
-  }, []);
+
+    return () => (mounted = false);
+    
+  }, [id]);
 
   return (
     <>
       <Helmet>
-        <title>{setDocumentTitle(`프로덕트 ${id}`)}</title>
+        <title>{setDocumentTitle(`${vowel?.letter ?? '로딩 중...'}`)}</title>
       </Helmet>
       <div className={classNames('page')(styles.container)} {...props}>
         {!vowel ? (
@@ -59,5 +64,5 @@ export default function ProductDetail(props) {
         )}
       </div>
     </>
-  )
+  );
 }

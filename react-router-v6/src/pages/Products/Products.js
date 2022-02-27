@@ -6,20 +6,27 @@ import { useEffect, useState } from 'react';
 import { hangleVowels } from 'services'
 import { Link } from 'react-router-dom';
 
+
 export default function Products(props) {
 
   const [vowels, setVowels] = useState(null);
 
   useEffect(() => {
+    let mounted = true;
+
     hangleVowels.getVowelAll().then((json) => {
-      setVowels(json);
+      mounted && setVowels(json);
     });
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   return (
     <>
       <Helmet>
-        <title>{setDocumentTitle('프로덕트')}</title>
+        <title>{setDocumentTitle(vowels ? '프로덕트' : '로딩 중...')}</title>
       </Helmet>
       <div className={classNames('page')(styles.products)} {...props}>
         <h2 tabIndex={0} className={styles.headline}>

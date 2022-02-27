@@ -24,8 +24,7 @@ export function Navigation({ list, className, ...restProps }) {
         <nav className={classNames(styles.container)(className)} {...restProps}>
           <ul className={classNames(styles.list)('resetList')}>
             {list.map((item) => {
-
-              // currentPage가 아니라, item.href 값으로 조건 처리해야 함
+              
               if (!currentUser && item.href.includes('dashboard')) {
                 return null;
               }

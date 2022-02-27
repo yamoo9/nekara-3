@@ -10,16 +10,11 @@ export function Header({ className, children, ...restProps }) {
   const { currentUser, signIn, signOut } = useAuth();
 
   const handleSignIn = () => {
-    signIn(
-      /* currentUser */
-      {
-        name: 'yamoo9',
-        role: 'instructor'
-      }, 
-      /* permission */
-      // 'admin'
-    );
-  }
+    signIn({
+      name: 'yamoo9',
+      role: 'instructor',
+    });
+  };
 
   return (
     <header

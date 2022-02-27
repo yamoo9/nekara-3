@@ -13,8 +13,8 @@ export const Spinner = ({
   messages,
   ...restProps
 }) => {
+  
   useEffect(() => {
-    // 로딩 시작 안내
     const loadingStartNode = document.getElementById('loading-start');
     loadingStartNode.setAttribute('role', 'alert');
     loadingStartNode.insertAdjacentHTML(
@@ -25,7 +25,6 @@ export const Spinner = ({
     );
 
     return () => {
-      // 로딩 종료 안내
       loadingStartNode.removeAttribute('role');
       loadingStartNode.innerHTML = '';
       const loadingEndNode = document.getElementById('loading-end');

@@ -3,13 +3,12 @@ import styles from './PageNotFound.module.css';
 import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 
+
 export default function PageNotFound() {
 
   const navigate = useNavigate();
   
   useEffect(() => {
-    // 프로그래밍 방식 내비게이션
-    // 리디렉션
     navigate('/page-not-found', { replace: true })
   }, [navigate]);
 
