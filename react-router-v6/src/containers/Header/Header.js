@@ -13,7 +13,7 @@ export function Header({ className, children, ...restProps }) {
     signIn({
       name: 'yamoo9',
       role: 'instructor',
-    });
+    }, 'admin');
   };
 
   return (

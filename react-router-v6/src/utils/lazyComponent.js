@@ -3,7 +3,7 @@ import { Spinner } from 'components';
 
 const fallbackComponent = {
   fallback: (
-    <Spinner size={200} messages={{
+    <Spinner size={200} fill="#a5f2df" storke="#26e3bf" messages={{
       start: '페이지 이동이 시작되었습니다.',
       end: '페이지 이동이 종료되었습니다.',
     }}
