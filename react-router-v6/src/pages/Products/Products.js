@@ -2,26 +2,13 @@ import styles from './Products.module.css';
 import { Spinner, WireframeBox } from 'components';
 import { classNames, setDocumentTitle } from 'utils';
 import { Helmet } from 'react-helmet-async';
-import { useEffect, useState } from 'react';
-import { hangleVowels } from 'services'
+import { useVowels } from 'services'
 import { Link } from 'react-router-dom';
 
 
 export default function Products(props) {
 
-  const [vowels, setVowels] = useState(null);
-
-  useEffect(() => {
-    let mounted = true;
-
-    hangleVowels.getVowelAll().then((json) => {
-      mounted && setVowels(json);
-    });
-
-    return () => {
-      mounted = false;
-    };
-  }, []);
+  const { isLoading, vowels } = useVowels();
 
   return (
     <>
@@ -32,7 +19,7 @@ export default function Products(props) {
         <h2 tabIndex={0} className={styles.headline}>
           프로덕트
         </h2>
-        {!vowels ? (
+        {isLoading ? (
           <Spinner size={150} opacity={0.8} />
         ) : (
           <WireframeBox className={styles.grid} style={{ height: null }}>

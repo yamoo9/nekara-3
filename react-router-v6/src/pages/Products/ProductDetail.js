@@ -1,30 +1,16 @@
 import styles from './ProductDetail.module.css';
 import { ReactComponent as SvgBackLink } from 'assets/arrowLeft.svg';
-import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import { A11yHidden, Spinner, WireframeBox } from 'components';
 import { classNames, setDocumentTitle } from 'utils';
-import { hangleVowels } from 'services';
+import { useVowel } from 'services';
 
 
 export default function ProductDetail(props) {
-
-  const [vowel, setVowel] = useState(null);
-
+  
   const { id } = useParams();
-
-  useEffect(() => {
-    
-    let mounted = true;
-
-    hangleVowels.getVowel(id).then((data) => {
-      mounted && setVowel(data);
-    });
-
-    return () => (mounted = false);
-    
-  }, [id]);
+  const { isLoading, vowel } = useVowel(id);
 
   return (
     <>
@@ -32,7 +18,7 @@ export default function ProductDetail(props) {
         <title>{setDocumentTitle(`${vowel?.letter ?? '로딩 중...'}`)}</title>
       </Helmet>
       <div className={classNames('page')(styles.container)} {...props}>
-        {!vowel ? (
+        {isLoading ? (
           <Spinner size={150} opacity={0.8} />
         ) : (
           <div className={styles.wrapper}>

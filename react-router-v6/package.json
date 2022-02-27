@@ -13,6 +13,7 @@
     "react-helmet-async": "1.2.3",
     "react-router-dom": "6.2.1",
     "react-scripts": "5.0.0",
+    "swr": "1.2.2",
     "web-vitals": "2.1.4"
   },
   "scripts": {
