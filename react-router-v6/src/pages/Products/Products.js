@@ -2,13 +2,13 @@ import styles from './Products.module.css';
 import { Spinner, WireframeBox } from 'components';
 import { classNames, setDocumentTitle } from 'utils';
 import { Helmet } from 'react-helmet-async';
-import { useVowels } from 'services'
 import { Link } from 'react-router-dom';
+import { useVowels } from 'hooks';
 
 
 export default function Products(props) {
 
-  const { isLoading, vowels } = useVowels();
+  const { loading, vowels } = useVowels();
 
   return (
     <>
@@ -19,7 +19,7 @@ export default function Products(props) {
         <h2 tabIndex={0} className={styles.headline}>
           프로덕트
         </h2>
-        {isLoading ? (
+        {loading ? (
           <Spinner size={150} opacity={0.8} />
         ) : (
           <WireframeBox className={styles.grid} style={{ height: null }}>

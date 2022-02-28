@@ -4,6 +4,21 @@
   display: inline-block;
 }
 
+.button {
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0.3em 0 0.1em;
+  font-size: 1rem;
+  color: #7c9691;
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  color: #02c7a3;
+  border-bottom: 4px solid currentColor;
+}
+
 .subNavigation {
   
 }
@@ -25,7 +40,7 @@
   color: var(--tertiary-color);
 }
 
-.navLink.active {
+.active {
   background: var(--active-color);
   border-radius: 6px;
 }

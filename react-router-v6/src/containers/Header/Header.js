@@ -6,21 +6,21 @@ import { useAuth } from 'contexts';
 /* -------------------------------------------------------------------------- */
 
 export function Header({ className, children, ...restProps }) {
-
+  
   const { currentUser, signIn, signOut } = useAuth();
 
   const handleSignIn = () => {
-    signIn({
-      name: 'yamoo9',
-      role: 'instructor',
-    });
+    signIn(
+      {
+        name: 'yamoo9',
+        role: 'instructor',
+      },
+      'admin'
+    );
   };
 
   return (
-    <header
-      className={classNames(styles.container)(className)}
-      {...restProps}
-    >
+    <header className={classNames(styles.container)(className)} {...restProps}>
       {children}
       <div className={styles.buttonGroup}>
         <button
@@ -28,7 +28,7 @@ export function Header({ className, children, ...restProps }) {
           className={styles.button}
           onClick={currentUser ? signOut : handleSignIn}
         >
-          { currentUser ? '로그아웃' : '로그인' }
+          {currentUser ? '로그아웃' : '로그인'}
         </button>
       </div>
     </header>

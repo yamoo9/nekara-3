@@ -1,5 +1,6 @@
 import styles from './Settings.module.css';
 import { useState } from 'react'
+import { useSearchParams } from 'react-router-dom';
 import { number } from 'prop-types';
 import { WireframeBox } from 'components';
 import { classNames } from 'utils';
@@ -24,6 +25,12 @@ export default function SettingList({ itemCount, ...restProps}) {
       });
 
   });
+
+  const [searchParams] = useSearchParams();
+
+  if (searchParams.get('filter')) {
+    list = list.filter(({ isActive }) => isActive);
+  }
 
   return (
     <div className={classNames('settingList')(styles.container)} {...restProps}>

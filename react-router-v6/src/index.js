@@ -14,11 +14,11 @@ render(
   <StrictMode>
     <SWRConfig value={{ provider: localStorageProvider }}>
       <AuthProvider>
-        <Router>
-          <HelmetProvider>
+        <HelmetProvider>
+          <Router>
             <WireframeApp />
-          </HelmetProvider>
-        </Router>
+          </Router>
+        </HelmetProvider>
       </AuthProvider>
     </SWRConfig>
   </StrictMode>,

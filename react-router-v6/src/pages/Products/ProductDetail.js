@@ -4,18 +4,12 @@ import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import { A11yHidden, Spinner, WireframeBox } from 'components';
 import { classNames, setDocumentTitle } from 'utils';
-import { useVowel } from 'services';
-import { useSWRConfig } from 'swr';
+import { useVowel } from 'hooks';
 
 export default function ProductDetail(props) {
-  const { cache } = useSWRConfig();
-
-  for (const [key, value] of cache) {
-    console.log(key, value);
-  }
 
   const { id } = useParams();
-  const { isLoading, vowel } = useVowel(id);
+  const { loading, vowel } = useVowel(id);
 
   return (
     <>
@@ -23,7 +17,7 @@ export default function ProductDetail(props) {
         <title>{setDocumentTitle(`${vowel?.letter ?? '로딩 중...'}`)}</title>
       </Helmet>
       <div className={classNames('page')(styles.container)} {...props}>
-        {isLoading ? (
+        {loading ? (
           <Spinner size={150} opacity={0.8} />
         ) : (
           <div className={styles.wrapper}>
