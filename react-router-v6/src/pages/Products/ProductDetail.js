@@ -5,10 +5,15 @@ import { Link, useParams } from 'react-router-dom';
 import { A11yHidden, Spinner, WireframeBox } from 'components';
 import { classNames, setDocumentTitle } from 'utils';
 import { useVowel } from 'services';
-
+import { useSWRConfig } from 'swr';
 
 export default function ProductDetail(props) {
-  
+  const { cache } = useSWRConfig();
+
+  for (const [key, value] of cache) {
+    console.log(key, value);
+  }
+
   const { id } = useParams();
   const { isLoading, vowel } = useVowel(id);
 
