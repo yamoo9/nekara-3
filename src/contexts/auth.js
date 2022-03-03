@@ -56,15 +56,23 @@ export const AuthProvider = (props) => {
       locale: 'ko',
     });
 
+    netlifyIdentity.setLocale('ko');
+
     netlifyIdentity.on('login', (user) => {
       dispatch({
         type: SIGN_IN,
         payload: {
           currentUser: user,
-          permission,
+          permission: user.app_metadata.roles[0],
         },
       });
       netlifyIdentity.close();
+    });
+
+    netlifyIdentity.on('logout', () => {
+      dispatch({
+        type: SIGN_OUT,
+      });
     });
   }, [permission]);
 
@@ -82,10 +90,9 @@ export const AuthProvider = (props) => {
     netlifyIdentity.open('login');
   };
 
-  const signOut = () =>
-    dispatch({
-      type: SIGN_OUT,
-    });
+  const signOut = () => {
+    netlifyIdentity.logout();
+  };
 
   const value = useMemo(
     () => ({
