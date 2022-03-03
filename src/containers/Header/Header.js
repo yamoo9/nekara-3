@@ -6,7 +6,6 @@ import { useAuth } from 'contexts';
 /* -------------------------------------------------------------------------- */
 
 export function Header({ className, children, ...restProps }) {
-  
   const { currentUser, signIn, signOut } = useAuth();
 
   const handleSignIn = () => {
