@@ -1,0 +1,8 @@
+.container {
+  
+}
+
+.setting {
+  border-color: var(--tertiary-color);
+  margin-bottom: 30px !important;
+}
