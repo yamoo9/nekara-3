@@ -1,6 +1,6 @@
 import styles from './Dashboard.module.css';
 import { arrayOf, bool, exact, string } from 'prop-types';
-import { NavLink, Outlet, Navigate, useLocation, useSearchParams } from 'react-router-dom'
+import { NavLink, Outlet, Navigate, useLocation, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { classNames, setDocumentTitle } from 'utils';
 import { WireframeBox } from 'components';

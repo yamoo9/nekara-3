@@ -52,11 +52,7 @@ export const AuthProvider = (props) => {
   );
 
   useEffect(() => {
-    netlifyIdentity.init({
-      locale: 'ko',
-    });
-
-    netlifyIdentity.setLocale('ko');
+    netlifyIdentity.init();
 
     netlifyIdentity.on('login', (user) => {
       dispatch({
@@ -68,6 +64,17 @@ export const AuthProvider = (props) => {
       });
       netlifyIdentity.close();
     });
+
+    netlifyIdentity.on('logout', () => {
+      dispatch({
+        type: SIGN_OUT,
+      });
+    });
+
+    return () => {
+      netlifyIdentity.off('login');
+      netlifyIdentity.off('logout');
+    };
   }, [permission]);
 
   useEffect(() => {
@@ -80,16 +87,12 @@ export const AuthProvider = (props) => {
 
   // ------------------------------------------------------------------------------------------
 
-  const signIn = (currentUser, permission = 'member') => {
+  const signIn = () => {
     netlifyIdentity.open('login');
   };
 
   const signOut = () => {
     netlifyIdentity.logout();
-
-    dispatch({
-      type: SIGN_OUT,
-    });
   };
 
   const value = useMemo(

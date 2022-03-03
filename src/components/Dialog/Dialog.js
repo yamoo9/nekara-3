@@ -1,12 +1,16 @@
 import styles from './Dialog.module.css';
 import { createPortal } from 'react-dom';
 import { bool, func } from 'prop-types';
+import { useScrollPrevent } from '../../hooks';
 
-
-export const Dialog = ({ hasDim, showDialog, cancelNavigation, confirmNavigation, ...restProps }) => {
-  
-  // [미션]
-  // 다이얼로그가 화면에 표시되었을 때 웹 문서가 스크롤 되지 않도록 설정
+export const Dialog = ({
+  hasDim,
+  showDialog,
+  cancelNavigation,
+  confirmNavigation,
+  ...restProps
+}) => {
+  useScrollPrevent(showDialog);
 
   return createPortal(
     <div className={styles.container} hidden={!showDialog} {...restProps}>
@@ -16,18 +20,27 @@ export const Dialog = ({ hasDim, showDialog, cancelNavigation, confirmNavigation
         </header>
         <p>
           <b>작성 중인 내용이 저장되지 않았습니다.</b>
-          <br />이대로 페이지를 떠나시겠습니까?
+          <br />
+          이대로 페이지를 떠나시겠습니까?
         </p>
         <footer>
-          <button type="button" className={styles.button} onClick={confirmNavigation}>
+          <button
+            type="button"
+            className={styles.button}
+            onClick={confirmNavigation}
+          >
             이동
           </button>
-          <button type="button" className={styles.button} onClick={cancelNavigation}>
+          <button
+            type="button"
+            className={styles.button}
+            onClick={cancelNavigation}
+          >
             취소
           </button>
         </footer>
       </div>
-      { hasDim && <div className={styles.dim} onClick={cancelNavigation} /> }
+      {hasDim && <div className={styles.dim} onClick={cancelNavigation} />}
     </div>,
     document.getElementById('dialog')
   );
@@ -35,11 +48,11 @@ export const Dialog = ({ hasDim, showDialog, cancelNavigation, confirmNavigation
 
 Dialog.defaultProps = {
   hasDim: true,
-}
+};
 
 Dialog.propTypes = {
   hasDim: bool,
   showDialog: bool.isRequired,
-  cancelNavigation: func.isRequired, 
-  confirmNavigation: func.isRequired
-}
+  cancelNavigation: func.isRequired,
+  confirmNavigation: func.isRequired,
+};

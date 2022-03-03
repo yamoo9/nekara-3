@@ -1,7 +1,16 @@
 [build]
-  command='npm run build'
+  command = 'npm run build'
   functions = 'functions'
   publish = 'build'
+
+[context.production.environment]
+  REACT_APP_TITLE = "싱글 페이지 애플리케이션"
+  REACT_APP_API = "https://my-json-server.typicode.com/yamoo9/assets/vowels"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 [[redirects]]
   from = "/dashboard"

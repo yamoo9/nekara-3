@@ -1,5 +1,5 @@
 import styles from './Profile.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { string } from 'prop-types';
 import { Dialog, WireframeBox } from 'components';
 import { useCallbackPrompt } from 'hooks';
@@ -18,18 +18,6 @@ export default function Profile({ profileName, ...restProps }) {
   const [showDialog, setShowDialog] = useState(false);
   const [showPrompt, confirmNavigation, cancelNavigation] =
     useCallbackPrompt(showDialog);
-
-  useEffect(() => {
-    const rootNode = document.documentElement;
-
-    if (showPrompt) {
-      rootNode.style.overflowY = 'hidden';
-    }
-
-    return () => {
-      rootNode.removeAttribute('style');
-    };
-  }, [showPrompt]);
 
   return (
     <div className={classNames('profile')(styles.container)} {...restProps}>
