@@ -1,4 +1,17 @@
 [build]
-command='npm run build'
-functions = 'functions'
-publish = 'build'
+  command='npm run build'
+  functions = 'functions'
+  publish = 'build'
+
+[[redirects]]
+  from = "/dashboard"
+  to ="/dashboard"
+  force = true
+  status = 200
+  conditions = {Role = ["Administrator"]}
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/"
+  force = true
+  status = 401

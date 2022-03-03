@@ -68,12 +68,6 @@ export const AuthProvider = (props) => {
       });
       netlifyIdentity.close();
     });
-
-    netlifyIdentity.on('logout', () => {
-      dispatch({
-        type: SIGN_OUT,
-      });
-    });
   }, [permission]);
 
   useEffect(() => {
@@ -92,6 +86,10 @@ export const AuthProvider = (props) => {
 
   const signOut = () => {
     netlifyIdentity.logout();
+
+    dispatch({
+      type: SIGN_OUT,
+    });
   };
 
   const value = useMemo(

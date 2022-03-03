@@ -4,12 +4,12 @@ exports.handler = function (event, context, callback) {
 
   const responseBody = {
     app_metadata: {
-      roles: ['member'],
-      my_user_info: '멤버',
+      roles: ['registered'],
+      my_user_info: 'registered user here',
     },
     user_metadata: {
       ...user.user_metadata,
-      permission: 'bronze',
+      custom_data_from_function: 'some extra super data',
     },
   };
   callback(null, {
