@@ -8,16 +8,6 @@ import { localStorageProvider } from 'providers';
 import { AuthProvider } from 'contexts';
 import WireframeApp from 'wireframe/App';
 import { store } from 'store';
-import { loginUser } from 'store/actions/auth/userActions';
-
-console.log(store.getState());
-
-store.dispatch(
-  loginUser({
-    name: 'yamoo9',
-    email: 'yamoo9@euid.dev',
-  })
-);
 
 console.log(store.getState());
 
