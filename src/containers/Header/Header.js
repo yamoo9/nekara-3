@@ -6,18 +6,7 @@ import { useAuth } from 'contexts';
 /* -------------------------------------------------------------------------- */
 
 export function Header({ className, children, ...restProps }) {
-  
   const { currentUser, signIn, signOut } = useAuth();
-
-  const handleSignIn = () => {
-    signIn(
-      {
-        name: 'yamoo9',
-        role: 'instructor',
-      },
-      'admin'
-    );
-  };
 
   return (
     <header className={classNames(styles.container)(className)} {...restProps}>
@@ -26,7 +15,7 @@ export function Header({ className, children, ...restProps }) {
         <button
           type="button"
           className={styles.button}
-          onClick={currentUser ? signOut : handleSignIn}
+          onClick={currentUser ? signOut : signIn}
         >
           {currentUser ? '로그아웃' : '로그인'}
         </button>
