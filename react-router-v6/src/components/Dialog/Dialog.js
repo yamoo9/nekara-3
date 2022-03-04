@@ -1,10 +1,7 @@
 import styles from './Dialog.module.css';
 import { createPortal } from 'react-dom';
 import { bool, func } from 'prop-types';
-import { useLayoutEffect } from 'react';
-
-const rootNode = document.documentElement;
-const scrollbarWidth = window.innerWidth - rootNode.clientWidth;
+import { useScrollPrevent } from 'hooks';
 
 export const Dialog = ({
   hasDim,
@@ -13,16 +10,7 @@ export const Dialog = ({
   confirmNavigation,
   ...restProps
 }) => {
-  useLayoutEffect(() => {
-    if (showDialog) {
-      rootNode.style.cssText = `
-      overflow-y: hidden;
-      padding-right: ${scrollbarWidth}px;
-      `;
-    } else {
-      rootNode.removeAttribute('style');
-    }
-  }, [showDialog]);
+  useScrollPrevent(showDialog);
 
   return createPortal(
     <div className={styles.container} hidden={!showDialog} {...restProps}>
