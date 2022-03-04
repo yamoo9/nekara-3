@@ -20,7 +20,7 @@ const ProtectedRoute = lazyComponent('ProtectedRoute');
 /* -------------------------------------------------------------------------- */
 
 export default function WireframeApp() {
-  const { currentUser, permission } = useAuth();
+  const { currentUser } = useAuth();
 
   const [navigation] = useState([
     { id: 'landing', href: '/', text: '홈' },
