@@ -46,7 +46,7 @@ export default function WireframeApp() {
           <Route
             path="dashboard"
             element={
-              <ProtectedRoute isAllowed={currentUser && permission === 'admin'}>
+              <ProtectedRoute isAllowed={currentUser}>
                 <Dashboard list={dashboardNavigation} />
               </ProtectedRoute>
             }

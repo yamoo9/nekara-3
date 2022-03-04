@@ -58,19 +58,17 @@ export const AuthProvider = (props) => {
     netlifyIdentity.init();
 
     netlifyIdentity.on('login', (user) => {
-      console.log('Netlify 로그인 이벤트 감지');
       dispatch({
         type: SIGN_IN,
         payload: {
           currentUser: user,
-          permission: 'Administrator',
+          permission: user.user_metadata.user_permission,
         },
       });
       netlifyIdentity.close();
     });
 
     netlifyIdentity.on('logout', () => {
-      console.log('Netlify 로그아웃 이벤트 감지');
       dispatch({
         type: SIGN_OUT,
       });

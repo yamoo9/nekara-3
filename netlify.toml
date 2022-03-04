@@ -11,3 +11,16 @@
   from = "/*"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to ="/dashboard"
+  force = true
+  status = 200
+  conditions = {Role = ["Administrator"]}
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/"
+  force = true
+  status = 401
