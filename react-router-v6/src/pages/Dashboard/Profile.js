@@ -8,7 +8,6 @@ import { classNames } from 'utils';
 /* -------------------------------------------------------------------------- */
 
 export default function Profile({ profileName, ...restProps }) {
-  
   const [name, setName] = useState(profileName);
 
   const handleChange = (e) => {
@@ -17,7 +16,8 @@ export default function Profile({ profileName, ...restProps }) {
   };
 
   const [showDialog, setShowDialog] = useState(false);
-  const [showPrompt, confirmNavigation, cancelNavigation] = useCallbackPrompt(showDialog);
+  const [showPrompt, confirmNavigation, cancelNavigation] =
+    useCallbackPrompt(showDialog);
 
   return (
     <div className={classNames('profile')(styles.container)} {...restProps}>

@@ -1,5 +1,5 @@
 import styles from './Settings.module.css';
-import { useState } from 'react'
+import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { number } from 'prop-types';
 import { WireframeBox } from 'components';
@@ -7,10 +7,8 @@ import { classNames } from 'utils';
 
 /* -------------------------------------------------------------------------- */
 
-export default function SettingList({ itemCount, ...restProps}) {
-
+export default function SettingList({ itemCount, ...restProps }) {
   let [list] = useState(() => {
-  
     return Array(itemCount)
       .fill(null)
       .map((_, index) => {
@@ -23,7 +21,6 @@ export default function SettingList({ itemCount, ...restProps}) {
           backgroundColor,
         };
       });
-
   });
 
   const [searchParams] = useSearchParams();
@@ -40,7 +37,9 @@ export default function SettingList({ itemCount, ...restProps}) {
           className={styles.setting}
           style={{ backgroundColor }}
         >
-          <span style={{fontWeight: 700, fontSize: 20}}>{isActive ? '활성' : '비활성'}</span>
+          <span style={{ fontWeight: 700, fontSize: 20 }}>
+            {isActive ? '활성' : '비활성'}
+          </span>
         </WireframeBox>
       ))}
     </div>
@@ -48,9 +47,9 @@ export default function SettingList({ itemCount, ...restProps}) {
 }
 
 SettingList.defaultProps = {
-  itemCount: 10
-}
+  itemCount: 10,
+};
 
 SettingList.propTypes = {
-  itemCount: number
-}
+  itemCount: number,
+};
