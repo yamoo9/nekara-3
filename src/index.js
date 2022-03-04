@@ -7,6 +7,7 @@ import { SWRConfig } from 'swr';
 import { localStorageProvider } from 'providers';
 import { AuthProvider } from 'contexts';
 import WireframeApp from 'wireframe/App';
+import 'store';
 
 /* -------------------------------------------------------------------------- */
 
