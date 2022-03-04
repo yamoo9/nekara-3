@@ -17,13 +17,15 @@
     "web-vitals": "2.1.4"
   },
   "devDependencies": {
+    "netlify-cli": "9.12.3",
     "prop-types": "15.8.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "functions-test": "netlify dev"
   },
   "eslintConfig": {
     "extends": [

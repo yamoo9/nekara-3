@@ -92,7 +92,7 @@ export const AuthProvider = (props) => {
 
   // ------------------------------------------------------------------------------------------
 
-  const signIn = useCallback((currentUser, permission = 'member') => {
+  const signIn = useCallback(() => {
     netlifyIdentity.open();
   }, []);
 
