@@ -7,19 +7,22 @@ import { SWRConfig } from 'swr';
 import { localStorageProvider } from 'providers';
 import { AuthProvider } from 'contexts';
 import WireframeApp from 'wireframe/App';
+import { StoreProvider } from 'store';
 
 /* -------------------------------------------------------------------------- */
 
 render(
   <StrictMode>
     <SWRConfig value={{ provider: localStorageProvider }}>
-      <AuthProvider>
-        <HelmetProvider>
-          <Router>
-            <WireframeApp />
-          </Router>
-        </HelmetProvider>
-      </AuthProvider>
+      <StoreProvider>
+        <AuthProvider>
+          <HelmetProvider>
+            <Router>
+              <WireframeApp />
+            </Router>
+          </HelmetProvider>
+        </AuthProvider>
+      </StoreProvider>
     </SWRConfig>
   </StrictMode>,
   document.getElementById('root')

@@ -1,12 +1,14 @@
 import styles from './Header.module.css';
 import { string, element } from 'prop-types';
 import { classNames } from 'utils';
-import { useAuth } from 'contexts';
+// import { useAuth } from 'contexts';
+import { useAuth } from 'store/hooks';
 
 /* -------------------------------------------------------------------------- */
 
 export function Header({ className, children, ...restProps }) {
-  const { currentUser, signIn, signOut } = useAuth();
+  // const { currentUser, signIn, signOut } = useAuth();
+  const { user: currentUser, login: signIn, logout: signOut } = useAuth();
 
   const handleSignIn = () => {
     signIn(
