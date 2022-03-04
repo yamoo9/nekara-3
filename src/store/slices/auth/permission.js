@@ -1,28 +1,17 @@
-// action types
-const PERMISSION_ADMIN = 'permission/administrator';
-const PERMISSION_MEMBER = 'permission/member';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 
-// action creators
-export const setAdministrator = (authUser) => ({
-  type: PERMISSION_ADMIN,
-  payload: authUser.uid,
-});
-
-export const setMember = (authUser) => ({
-  type: PERMISSION_MEMBER,
-  payload: authUser.uid,
-});
+export const permissionAdmin = createAction('permission/administrator');
+export const permissionMember = createAction('permission/member');
 
 // inital state
 const initialState = 'member';
 
 // reducer
-export default function reducer(state = initialState, { type, payload }) {
-  switch (type) {
-    case PERMISSION_ADMIN:
-      return 'administrator';
-    case PERMISSION_MEMBER:
-    default:
-      return initialState;
-  }
-}
+export default createReducer(initialState, (builder) => {
+  builder.addCase(permissionAdmin, (state, action) => {
+    return 'administrator';
+  });
+  builder.addCase(permissionMember, (state, action) => {
+    return initialState;
+  });
+});

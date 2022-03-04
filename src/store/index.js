@@ -1,5 +1,4 @@
-import { createStore } from 'redux';
-import { composeWithDevTools } from '@redux-devtools/extension';
+import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './slices';
 
 // REDUX 사용하는 이유가 복잡한 상태 관리
@@ -8,5 +7,9 @@ import rootReducer from './slices';
 /* -------------------------------------------------------------------------- */
 /* STORE                                                                      */
 /* -------------------------------------------------------------------------- */
-// { #state, getState, dispatch, subscribe }
-export const store = createStore(rootReducer, composeWithDevTools());
+
+// redux createStore 대신에 RTK의 configureStore 사용
+export const store = configureStore({
+  reducer: rootReducer,
+  devTools: true,
+});

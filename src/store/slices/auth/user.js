@@ -1,30 +1,20 @@
-// action types
-const AUTH_LOGIN = 'auth/login';
-const AUTH_LOGOUT = 'auth/logout';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 
-// action creators
-export const authLogin = (authUser) => ({
-  type: AUTH_LOGIN,
-  payload: authUser,
-});
+/* -------------------------------------------------------------------------- */
 
-export const authLogout = () => ({
-  type: AUTH_LOGOUT,
-});
+export const authLogin = createAction('auth/login');
+export const authLogout = createAction('auth/logout');
 
 // inital state
 const initialState = null;
 
 // reducer
-export default function reducer(state = initialState, { type, payload }) {
-  switch (type) {
-    case AUTH_LOGIN:
-      return {
-        ...state,
-        ...payload,
-      };
-    case AUTH_LOGOUT:
-    default:
-      return initialState;
-  }
-}
+export default createReducer(initialState, {
+  [authLogin]: (state, action) => {
+    state = action.payload;
+    return state;
+  },
+  [authLogout]: () => {
+    return initialState;
+  },
+});

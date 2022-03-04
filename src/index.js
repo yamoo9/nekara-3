@@ -8,6 +8,16 @@ import { localStorageProvider } from 'providers';
 import { AuthProvider } from 'contexts';
 import WireframeApp from 'wireframe/App';
 import { store } from 'store';
+import { login } from 'store/slices/auth/user.slice';
+
+console.log(store.getState());
+
+store.dispatch(
+  login({
+    name: 'yamoo9',
+    job: 'instructor',
+  })
+);
 
 console.log(store.getState());
 
